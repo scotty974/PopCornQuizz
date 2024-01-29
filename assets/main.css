@@ -5,6 +5,7 @@
 body {
   background: #2A3164;
   color: white;
+  overflow: hidden;
 }
 
 @keyframes spin{
