@@ -7,6 +7,7 @@
         type="text"
         placeholder="spaceJoe"
         v-model="pseudo"
+        required
       />
       <a
         href=""
