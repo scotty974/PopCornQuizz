@@ -12,7 +12,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
     </p>
     <NuxtLink
       to="/login"
-      class="bg-primary py-3 px-3 rounded-xl w-56 text-center font-bold text-2xl"
+      class="bg-primary py-3 px-3 rounded-xl w-56 text-center font-bold text-2xl text-white"
       >Embarquer</NuxtLink
 
     >
