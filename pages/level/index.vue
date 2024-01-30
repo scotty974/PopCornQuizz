@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <section
     class="flex flex-col md:container md:m-auto px-2 justify-center items-center gap-6"
   >
