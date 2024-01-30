@@ -1,0 +1,53 @@
+<template>
+  <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-center gap-2">
+      <NuxtLink
+        to="/"
+        class="flex w-52 h-52 bg-bgLevel rounded-2xl align-items-center justify-center"
+        @click="toggleSelection"
+        :class="{ 'selected-card': isSelected }"
+      >
+        <img :src="`@/assets/media/` + image" :alt="level" />
+      </NuxtLink>
+      <h3
+        @click="toggleSelection"
+        :class="{ 'selected-text': isSelected }"
+        class="text-xl font-bold text-textSecondary"
+      >
+        {{ level }}
+      </h3>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isSelected: false,
+    };
+  },
+  props: {
+    level: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+  },
+  methods: {
+    toggleSelection() {
+      this.isSelected = !this.isSelected;
+    },
+  },
+};
+</script>
+
+<style scoped>
+.selected-card {
+  background-color: #0466c8;
+}
+.selected-text {
+  color: white;
+}
+</style>
