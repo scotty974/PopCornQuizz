@@ -8,7 +8,6 @@
       class="absolute animate-spin h-planetsSize -z-10 right-72"
       style="animation: spin 50s linear infinite"
     />
-
     <div class="w-full flex justify-center items-center h-screen z-20">
       <AccueilCard />
     </div>
@@ -17,4 +16,3 @@
     </footer>
   </section>
 </template>
-

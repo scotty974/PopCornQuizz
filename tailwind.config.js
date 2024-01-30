@@ -10,15 +10,16 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors : {
-        textColor : "#747DB5",
-        bgColor  : "#2A3164",
-        primary : "#0466C8"
+      colors: {
+        textColor: "#747DB5",
+        bgColor: "#2A3164",
+        primary: "#0466C8",
+        blueSecondary: "#30376A",
       },
-      height : {
-        planetsSize : 500
-      }
+      height: {
+        planetsSize: 500,
+      },
     },
   },
   plugins: [],
-}
+};
