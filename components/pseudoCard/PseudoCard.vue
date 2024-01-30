@@ -3,7 +3,7 @@
     <h2 class="text-3xl font-bold text-white">Choisir votre pseudo</h2>
     <form class="flex flex-col items-center gap-6" @submit="setLocalPseudo">
       <input
-        class="bg-blueSecondary px-8 rounded-lg w-72 h-10"
+        class="bg-blueSecondary px-8 rounded-lg w-72 h-10 "
         type="text"
         placeholder="spaceJoe"
         v-model="pseudo"
