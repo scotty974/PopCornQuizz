@@ -6,8 +6,8 @@
     <h2 class="text-3xl font-bold text-white">Choisir votre niveau</h2>
     <div class="w-full flex justify-center items-center z-20 gap-6">
       <LevelCard level="Débutant" image="debutant.svg" />
-      <LevelCard level="Débutant" image="intermediaire.svg" />
-      <LevelCard level="Débutant" image="expert.svg" />
+      <LevelCard level="Intermédiare" image="intermediaire.svg" />
+      <LevelCard level="Expert" image="expert.svg" />
     </div>
   </section>
 </template>

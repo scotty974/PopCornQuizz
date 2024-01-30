@@ -21,6 +21,7 @@ module.exports = {
       height: {
         planetsSize: 500,
       },
+      
     },
   },
   plugins: [],
