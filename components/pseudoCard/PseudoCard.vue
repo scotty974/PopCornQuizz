@@ -25,6 +25,7 @@ export default {
   },
   methods : {
     setLocalPseudo(){
+      console.log(this.pseudo)
       localStorage.setItem("pseudo" , this.pseudo)
     }
   }
