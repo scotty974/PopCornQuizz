@@ -1,0 +1,17 @@
+<template>
+  <div class="flex flex-col items-center gap-6">
+    <h2 class="text-3xl font-bold">Choisir votre pseudo</h2>
+    <form class="flex flex-col items-center gap-6" action="">
+      <input
+        class="bg-blueSecondary px-8 rounded-lg w-72 h-10"
+        type="text"
+        placeholder="spaceJoe"
+      />
+      <a
+        href=""
+        class="bg-primary py-3 px-3 rounded-xl min-w-72 text-center font-bold text-2xl"
+        >Continuer</a
+      >
+    </form>
+  </div>
+</template>
