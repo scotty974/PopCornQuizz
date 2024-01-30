@@ -4,7 +4,11 @@
 
 body {
   background: #2A3164;
+  background-image: url('../assets/media/star.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
+  overflow: hidden;
 }
 
 @keyframes spin{
