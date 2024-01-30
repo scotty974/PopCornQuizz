@@ -1,13 +1,16 @@
+<script setup>
+const img = useImage()
+</script>
 <template>
   <div class="flex flex-col items-center gap-6">
     <div class="flex flex-col items-center gap-2">
       <NuxtLink
         to="/"
-        class="flex w-52 h-52 bg-bgLevel rounded-2xl align-items-center justify-center"
+        class="flex w-52 h-52 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-2xl items-center justify-center"
         @click="toggleSelection"
         :class="{ 'selected-card': isSelected }"
       >
-        <img :src="`@/assets/media/` + image" :alt="level" />
+        <img :src="`_nuxt/assets/media/${image}`" :alt="level" class="w-40 h-40"/>
       </NuxtLink>
       <h3
         @click="toggleSelection"

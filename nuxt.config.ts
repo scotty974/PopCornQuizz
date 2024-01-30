@@ -7,6 +7,10 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
+    
   },
- 
+  modules: [
+    '@nuxt/image',
+    
+  ]
 })

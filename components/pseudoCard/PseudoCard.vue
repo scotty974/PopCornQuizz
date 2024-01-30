@@ -5,7 +5,7 @@ import defineGuardPseudo from "../pseudoCard/pseudoGuard.ts";
 <template>
   <div class="flex flex-col items-center gap-6">
     <h2 class="text-3xl font-bold text-white">Choisir votre pseudo</h2>
-    <form class="flex flex-col items-center gap-6" @submit="setLocalPseudo">
+    <form class="flex flex-col items-center gap-6" @submit.prevent="setLocalPseudo">
       <input
         class="bg-blueSecondary px-8 rounded-lg w-72 h-10 text-white"
         type="text"
@@ -38,6 +38,7 @@ export default {
       try {
         const result = await defineGuardPseudo(this.pseudo);
         if (result === false) {
+          
         } else {
           result;
           
