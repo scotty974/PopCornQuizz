@@ -8,7 +8,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
       attend dans les étoiles!
     </p>
     <NuxtLink
-      to="/pseudo"
+      to="/login"
       class="bg-primary py-3 px-3 rounded-xl w-56 text-center font-bold text-2xl"
       >Embarquer</NuxtLink
     >
