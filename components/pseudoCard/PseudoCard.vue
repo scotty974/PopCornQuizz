@@ -10,7 +10,7 @@
       />
       <a
         href=""
-        class="bg-primary py-3 px-3 rounded-xl min-w-72 text-center font-bold text-2xl"
+        class="bg-primary py-3 px-3 rounded-xl min-w-72 text-center font-bold text-2xl text-white"
         >Continuer</a
       >
     </form>
