@@ -1,3 +1,6 @@
+<script setup>
+import levelsData from "../level/level.json";
+</script>
 <template>
   <Header />
   <section
@@ -5,9 +8,21 @@
   >
     <h2 class="text-3xl font-bold text-white">Choisir votre niveau</h2>
     <div class="w-full flex justify-center items-center z-20 gap-6">
-      <LevelCard level="Débutant" image="debutant.svg" />
-      <LevelCard level="Intermédiare" image="intermediaire.svg" />
-      <LevelCard level="Expert" image="expert.svg" />
+      <LevelCard
+        v-for="level in levels"
+        :level="level.level"
+        :image="level.image"
+        :id="level.id"
+      />
     </div>
   </section>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      levels: levelsData,
+    };
+  },
+};
+</script>
