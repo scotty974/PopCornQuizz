@@ -1,5 +1,6 @@
 <template>
   <Header />
+
   <section
     class="min-h-screen md:container md:m-auto px-2 flex justify-center items-center"
   >
