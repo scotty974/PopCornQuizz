@@ -1,9 +1,9 @@
 <template>
   <Header />
   <section
-    class="md:container md:m-auto px-2 flex justify-center items-center "
+    class="min-h-screen md:container md:m-auto px-2 flex justify-center items-center"
   >
-    <div class="w-full flex justify-center items-center  z-20">
+    <div class="w-full flex justify-center items-center z-20">
       <PseudoCard></PseudoCard>
     </div>
   </section>

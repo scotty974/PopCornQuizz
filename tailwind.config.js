@@ -21,7 +21,13 @@ module.exports = {
       height: {
         planetsSize: 500,
       },
-      
+
+      width: {
+        cardQuestion: "606px",
+      },
+      borderRadius: {
+        answer: "10px",
+      },
     },
   },
   plugins: [],
