@@ -24,9 +24,11 @@ module.exports = {
 
       width: {
         cardQuestion: "606px",
+        cardLeaderboard: "480px",
       },
       borderRadius: {
         answer: "10px",
+        leaderboard: "20px",
       },
     },
   },
