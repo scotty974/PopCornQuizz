@@ -6,6 +6,7 @@
   >
     <div class="w-full flex justify-center items-center z-20">
       <PseudoCard></PseudoCard>
+      <!-- <LeaderBoard></LeaderBoard> -->
     </div>
   </section>
 </template>
