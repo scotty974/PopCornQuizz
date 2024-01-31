@@ -1,17 +1,15 @@
-import type AnswerCardVue from '../answers/AnswerCard.vue'; import type { space
-} from 'postcss/lib/list';
 <template>
   <div class="flex flex-col gap-7 items-center">
     <div class="w-cardQuestion h-72 bg-slate-400 rounded-3xl"></div>
     <span class="text-2xl text-white">{{ question }}</span>
     <div class="flex flex-col gap-10">
       <div class="flex gap-6">
-        <AnswerCard answer="Réponse 1"></AnswerCard>
-        <AnswerCard answer="Réponse 2"></AnswerCard>
+        <AnswerCard v-if="answerExists" :answer="answer[0].true_answer"></AnswerCard>
+        <AnswerCard v-if="answerExists" :answer="answer[0].false_answer_one"></AnswerCard>
       </div>
       <div class="flex gap-6">
-        <AnswerCard answer="Réponse 3"></AnswerCard>
-        <AnswerCard answer="Réponse 4"></AnswerCard>
+        <AnswerCard v-if="answerExists" :answer="answer[0].false_answer_two"></AnswerCard>
+        <AnswerCard v-if="answerExists" :answer="answer[0].false_anwser_three"></AnswerCard>
       </div>
     </div>
   </div>
@@ -19,9 +17,30 @@ import type AnswerCardVue from '../answers/AnswerCard.vue'; import type { space
 
 <script>
 export default {
+  data() {
+    return {
+      answer: [],
+    };
+  },
   props: {
     question: {
       type: String,
+    },
+    data: {
+      type: Array,
+    },
+  },
+  computed: {
+    answerExists() {
+      return this.answer.length > 0 && !!this.answer[0];
+    },
+  },
+  mounted() {
+    this.handleAnswer();
+  },
+  methods: {
+    async handleAnswer() {
+      this.answer = this.data;
     },
   },
 };
