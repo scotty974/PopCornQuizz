@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-7 items-center">
-    <div class="w-cardQuestion h-72 bg-slate-400 rounded-3xl"></div>
+    <div class="w-cardQuestion h-56 md:h-72 bg-slate-400 rounded-3xl"></div>
     <span class="text-2xl text-white">{{ question }}</span>
     <div class="flex flex-col gap-10">
       <div class="flex gap-6">
