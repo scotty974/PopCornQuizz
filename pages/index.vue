@@ -24,7 +24,15 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isLoading: true,
+    };
+  },
   mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
     // JavaScript pour générer les étoiles
     const nightContainer = document.querySelector(".night");
 
