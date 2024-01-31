@@ -1,6 +1,7 @@
 <script setup>
+import {useRoute} from 'vue-router'
 import supabase from '../../lib/supabaseClient.js'
-const route = useRoute()
+
 </script>
 <template>
   <Header></Header>
@@ -16,7 +17,8 @@ const route = useRoute()
 export default {
   data(){
     return {
-      dataQuestions : []
+      dataQuestions : [],
+      route : useRoute()
     }
   },
   mounted(){
@@ -24,10 +26,10 @@ this.handleQuestions()
   },
   methods : {
     async handleQuestions(){
-      const {data} = await supabase.from("questions").select("*")
+      const {data} = await supabase.from("questions").select("*").eq("level", this.route.params.id)
       console.log(data)
       this.dataQuestions = data
-      console.log(route.params.id)
+      console.log(this.route.params.id)
     }
   }
 }
