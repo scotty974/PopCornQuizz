@@ -8,4 +8,15 @@
       >
     </nav>
   </header>
+  <Timer v-if="isQuestionPage" class="absolute right-0 m-8"></Timer>
 </template>
+
+<script>
+export default {
+  computed: {
+    isQuestionPage() {
+      return this.$route.name === "question-id";
+    },
+  },
+};
+</script>
