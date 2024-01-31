@@ -10,29 +10,25 @@
 
 <script>
 export default {
+  data(){
+    return{
+      isSelected : false
+    }
+  },
   props: {
     answer: {
-      type: String,
+      type: Object,
       required: true,
     },
     isCorrect: {
       type: Boolean,
-      default: false,
+      
     },
-  },
-  data() {
-    return {
-      isSelected: false,
-    };
   },
   methods: {
     toggleSelection() {
-      this.isSelected = !this.isSelected;
-      if (this.isCorrect && this.isSelected) {
-        setTimeout(() => {
-          console.log("question suivante");
-        }, 3000);
-      }
+      this.isSelected = true
+      this.$emit('card-clicked', { answer: this.answer, isCorrect: this.isCorrect });
     },
   },
 };
@@ -42,7 +38,7 @@ export default {
 .correct-answer {
   background-color: #0466c8;
 }
-.wrong-answer{
-  background-color : #E63A46
+.wrong-answer {
+  background-color: #e63a46;
 }
 </style>

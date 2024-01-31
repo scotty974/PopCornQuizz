@@ -1,30 +1,31 @@
 <template>
   <div class="flex flex-col gap-7 items-center">
-    <div class="w-cardQuestion  md:h-56 bg-slate-400 rounded-3xl"></div>
-    <span class="text-2xl text-white">{{ question }}</span>
+    <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"></div>
+    <span class="question text-2xl text-white">{{ data.question }}</span>
     <div class="flex flex-col gap-10">
       <div class="flex gap-6">
         <AnswerCard
-          v-if="answerExists"
-          :answer="answer[0].true_answer"
-          :is-correct="correctAnswer === answer[0].true_answer"
+          :answer="data.true_answer"
+          :is-correct="correctAnswer = true"
+          @card-clicked="handleCardClicked"
         ></AnswerCard>
+
         <AnswerCard
-          v-if="answerExists"
-          :answer="answer[0].false_answer_one"
-          :is-correct="correctAnswer === answer[0].false_answer_one"
+          :answer="data.false_answer_one"
+          :is-correct="correctAnswer =false"
+          @card-clicked="handleCardClicked"
         ></AnswerCard>
       </div>
       <div class="flex gap-6">
         <AnswerCard
-          v-if="answerExists"
-          :answer="answer[0].false_answer_two"
-          :is-correct="correctAnswer === answer[0].false_answer_two"
+          :answer="data.false_answer_two"
+          :is-correct="correctAnswer =false"
+          @card-clicked="handleCardClicked"
         ></AnswerCard>
         <AnswerCard
-          v-if="answerExists"
-          :answer="answer[0].false_anwser_three"
-          :is-correct="correctAnswer === answer[0].false_anwser_three"
+          :answer="data.false_anwser_three"
+          :is-correct="correctAnswer = false"
+          @card-clicked="handleCardClicked"
         ></AnswerCard>
       </div>
     </div>
@@ -35,30 +36,19 @@
 export default {
   data() {
     return {
-      answer: [],
-      correctAnswer: null,
+      correctAnswer: false,
     };
   },
   props: {
-    question: {
-      type: String,
-    },
     data: {
-      type: Array,
+      type: Object,
     },
-  },
-  computed: {
-    answerExists() {
-      return this.answer.length > 0 && !!this.answer[0];
-    },
-  },
-  mounted() {
-    this.handleAnswer();
   },
   methods: {
-    async handleAnswer() {
-      this.answer = this.data;
-      this.correctAnswer = this.answer[0].true_answer;
+    handleCardClicked(cardInfo) {
+      console.log('Card Clicked:', cardInfo);
+      this.correctAnswer = cardInfo.isCorrect;
+      console.log(this.correctAnswer)
     },
   },
 };
