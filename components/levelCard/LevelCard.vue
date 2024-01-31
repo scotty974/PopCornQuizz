@@ -6,7 +6,7 @@ const img = useImage();
   <div class="flex flex-col items-center gap-6">
     <div class="flex flex-col items-center gap-2">
       <NuxtLink
-        to="/"
+        to="/question"
         class="flex w-52 h-52 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-2xl items-center justify-center"
         @click="toggleSelection"
         :class="{ 'selected-card': isSelected }"

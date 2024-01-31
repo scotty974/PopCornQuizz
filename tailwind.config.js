@@ -25,6 +25,9 @@ module.exports = {
       width: {
         cardQuestion: "606px",
       },
+      borderRadius: {
+        answer: "10px",
+      },
     },
   },
   plugins: [],

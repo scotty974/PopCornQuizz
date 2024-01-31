@@ -6,9 +6,23 @@ import type AnswerCardVue from '../answers/AnswerCard.vue'; import type { space
     <span class="text-2xl text-white">La question de l'image</span>
     <div class="flex flex-col gap-10">
       <div class="flex gap-6">
-        <AnswerCardVue></AnswerCardVue>
+        <AnswerCard answer="Réponse 1"></AnswerCard>
+        <AnswerCard answer="Réponse 2"></AnswerCard>
       </div>
-      <div class="flex gap-6"></div>
+      <div class="flex gap-6">
+        <AnswerCard answer="Réponse 3"></AnswerCard>
+        <AnswerCard answer="Réponse 4"></AnswerCard>
+      </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    question: {
+      type: String,
+    },
+  },
+};
+</script>
