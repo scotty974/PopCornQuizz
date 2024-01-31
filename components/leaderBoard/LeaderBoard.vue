@@ -3,7 +3,8 @@
     <div
       class="flex flex-col w-cardLeaderboard h-full bg-primary rounded-leaderboard gap-8 px-8 pt-8 pb-6"
     >
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center gap-3">
+        <img class="w-14" src="assets/media/expert.svg" alt="" />
         <h2 class="text-white text-2xl">LeaderBoard</h2>
       </div>
 
