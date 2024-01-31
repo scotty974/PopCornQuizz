@@ -1,3 +1,6 @@
+<script setup>
+import supabase from '../../lib/supabaseClient.js'
+</script>
 <template>
   <Header></Header>
   <section
@@ -6,3 +9,17 @@
     <QuestionCard></QuestionCard>
   </section>
 </template>
+
+<script>
+export default {
+  mounted(){
+this.handleQuestions()
+  },
+  methods : {
+    async handleQuestions(){
+      const {data} = await supabase.from("questions").select("*")
+      console.log(data)
+    }
+  }
+}
+</script>
