@@ -1,5 +1,6 @@
 <script setup>
 import supabase from '../../lib/supabaseClient.js'
+const route = useRoute()
 </script>
 <template>
   <Header></Header>
@@ -26,6 +27,7 @@ this.handleQuestions()
       const {data} = await supabase.from("questions").select("*")
       console.log(data)
       this.dataQuestions = data
+      console.log(route.params.id)
     }
   }
 }

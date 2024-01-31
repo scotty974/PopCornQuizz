@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "level": "Debutant",
+      "image": "debutant.svg"
+    },
+    {
+      "id": 2,
+      "level": "Intermediare",
+      "image": "intermediaire.svg"
+    },
+    {
+      "id": 3,
+      "level": "Expert",
+      "image": "expert.svg"
+    }
+  ]
+  
