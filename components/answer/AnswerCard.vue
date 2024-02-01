@@ -2,7 +2,10 @@
   <div
     class="flex items-center justify-center w-56 h-20 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-answer hover:cursor-pointer"
     @click="toggleSelection"
-    :class="{ 'correct-answer': isCorrect && isSelected, 'wrong-answer' : !isCorrect && isSelected }"
+    :class="{
+      'correct-answer': isCorrect && isSelected,
+      'wrong-answer': !isCorrect && isSelected,
+    }"
   >
     <span class="text-xl text-white">{{ answer }}</span>
   </div>
@@ -28,7 +31,11 @@ export default {
   methods: {
     toggleSelection() {
       this.isSelected = true;
-      this.$emit('card-clicked', { answer: this.answer, isCorrect: this.isCorrect });
+
+      this.$emit("card-clicked", {
+        answer: this.answer,
+        isCorrect: this.isCorrect,
+      });
     },
     resetStyle() {
       this.isSelected = false;
@@ -44,7 +51,7 @@ export default {
 
 <style scoped>
 .correct-answer {
-  background-color: #0466c8;
+  background-color: #2b9b63;
 }
 .wrong-answer {
   background-color: #e63a46;

@@ -46,11 +46,10 @@ export default {
   },
   methods: {
     handleCardClicked(cardInfo) {
-      
-      if (cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()) {
-        console.log(cardInfo)
+      if (
+        cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()
+      ) {
         this.correctAnswer = true;
-        
       } else {
         this.correctAnswer = false;
       }
