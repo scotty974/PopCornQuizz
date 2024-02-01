@@ -53,6 +53,7 @@ export default {
         this.handleQuestions();
         if (this.currentIndex >= this.dataQuestions.length) {
           this.gameOver = true
+          return navigateTo("/leaderboard")
         }
       }, 500);
     },

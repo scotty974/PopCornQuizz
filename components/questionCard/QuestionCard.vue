@@ -63,6 +63,7 @@ export default {
       } else {
         this.correctAnswer = false;
         cardInfo.isCorrect = this.correctAnswer;
+        questionsScore(0)
       }
 
       this.$emit("selected-Card");

@@ -9,7 +9,7 @@ export default function handleScore(newScore) {
     localStorage.setItem('score', updatedScore.toString());
 
     // Affichage du score mis à jour
-    console.log("Nouveau score :", updatedScore);
+   
 }
-localStorage.setItem("score",0)
+localStorage.setItem("score","0")
 
