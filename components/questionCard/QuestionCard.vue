@@ -29,7 +29,7 @@ import questionsScore from '../questionCard/questionsScore.js'
           :good-answer="false"
         ></AnswerCard>
         <AnswerCard
-          :answer="data.false_anwser_three"
+          :answer="data.false_answer_three"
           :isCorrect="correctAnswer"
           @card-clicked="handleCardClicked"
           :good-answer="false"
