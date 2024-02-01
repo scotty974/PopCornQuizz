@@ -6,25 +6,25 @@
       <div class="flex gap-6">
         <AnswerCard
           :answer="data.true_answer"
-          :is-correct="correctAnswer = true"
+          :is-correct="correctAnswer"
           @card-clicked="handleCardClicked"
         ></AnswerCard>
 
         <AnswerCard
           :answer="data.false_answer_one"
-          :is-correct="correctAnswer =false"
+          :is-correct="correctAnswer"
           @card-clicked="handleCardClicked"
         ></AnswerCard>
       </div>
       <div class="flex gap-6">
         <AnswerCard
           :answer="data.false_answer_two"
-          :is-correct="correctAnswer =false"
+          :is-correct="correctAnswer"
           @card-clicked="handleCardClicked"
         ></AnswerCard>
         <AnswerCard
           :answer="data.false_anwser_three"
-          :is-correct="correctAnswer = false"
+          :is-correct="correctAnswer"
           @card-clicked="handleCardClicked"
         ></AnswerCard>
       </div>
@@ -36,7 +36,7 @@
 export default {
   data() {
     return {
-      correctAnswer: false,
+      correctAnswer: null,
     };
   },
   props: {
@@ -46,9 +46,15 @@ export default {
   },
   methods: {
     handleCardClicked(cardInfo) {
-      console.log('Card Clicked:', cardInfo);
-      this.correctAnswer = cardInfo.isCorrect;
-      console.log(this.correctAnswer)
+      if (
+        cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()
+      ) {
+        this.correctAnswer = true;
+      } else {
+        this.correctAnswer = false;
+      }
+
+      this.$emit("selected-Card");
     },
   },
 };

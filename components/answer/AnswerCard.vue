@@ -1,19 +1,22 @@
 <template>
   <div
-    class="flex items-center justify-center w-56 h-20 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-answer hover:cursor-pointer"
+    class="flex items-center justify-center w-56 h-20 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-answer hover:cursor-pointer px-4"
     @click="toggleSelection"
-    :class="{ 'correct-answer': isCorrect && isSelected, 'wrong-answer' : !isCorrect && isSelected }"
+    :class="{
+      'correct-answer': isCorrect && isSelected,
+      'wrong-answer': !isCorrect && isSelected,
+    }"
   >
-    <span class="text-xl text-white">{{ answer }}</span>
+    <span class="text-xl text-white text-center">{{ answer }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-      isSelected : false
-    }
+  data() {
+    return {
+      isSelected: false,
+    };
   },
   props: {
     answer: {
@@ -22,13 +25,25 @@ export default {
     },
     isCorrect: {
       type: Boolean,
-      
+      default: null,
     },
   },
   methods: {
     toggleSelection() {
-      this.isSelected = true
-      this.$emit('card-clicked', { answer: this.answer, isCorrect: this.isCorrect });
+      this.isSelected = true;
+
+      this.$emit("card-clicked", {
+        answer: this.answer,
+        isCorrect: this.isCorrect,
+      });
+    },
+    resetStyle() {
+      this.isSelected = false;
+    },
+  },
+  watch: {
+    answer() {
+      this.resetStyle();
     },
   },
 };
@@ -36,7 +51,7 @@ export default {
 
 <style scoped>
 .correct-answer {
-  background-color: #0466c8;
+  background-color: #2b9b63;
 }
 .wrong-answer {
   background-color: #e63a46;
