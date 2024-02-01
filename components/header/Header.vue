@@ -21,6 +21,7 @@ export default {
   methods : {
     handleTime(){
       this.$emit('time-zero')
+      
     }
   }
 };
