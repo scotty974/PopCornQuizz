@@ -1,5 +1,6 @@
 <script setup>
 import { useRoute } from "vue-router";
+import { ref } from "vue";
 import supabase from "../../lib/supabaseClient.js";
 </script>
 
@@ -8,7 +9,7 @@ import supabase from "../../lib/supabaseClient.js";
   <section
     class="min-h-screen md:container md:m-auto px-2 flex flex-col gap-7 justify-center items-center"
   >
-    <QuestionCard :data="currentQuestion"></QuestionCard>
+    <QuestionCard :data="currentQuestion" @selected-Card="nextQuestion"></QuestionCard>
   </section>
 </template>
 
@@ -16,10 +17,10 @@ import supabase from "../../lib/supabaseClient.js";
 export default {
   data() {
     return {
-      dataQuestions: [],
+      dataQuestions: ref([]),
       route: useRoute(),
-      currentIndex: 0,
-      currentQuestion: {},
+      currentIndex: ref(0),
+      currentQuestion: ref({}),
     };
   },
   async mounted() {
@@ -31,15 +32,19 @@ export default {
       const { data } = await supabase
         .from("questions")
         .select("*")
-        .eq("level",  this.route.params.id);
-
+        .eq("level", this.route.params.id);
       this.dataQuestions = data;
-      if(this.dataQuestions.length > 0){
+      if (this.dataQuestions.length > 0) {
         this.currentQuestion = this.dataQuestions[this.currentIndex];
       }
-      
-      console.log(this.currentQuestion);
     },
+    nextQuestion(){
+      setTimeout(() => {
+        this.currentIndex ++
+      this.handleQuestions()
+      }, 500);
+      
+    }
   },
 };
 </script>

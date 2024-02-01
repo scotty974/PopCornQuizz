@@ -10,10 +10,10 @@
 
 <script>
 export default {
-  data(){
-    return{
-      isSelected : false
-    }
+  data() {
+    return {
+      isSelected: false,
+    };
   },
   props: {
     answer: {
@@ -22,13 +22,21 @@ export default {
     },
     isCorrect: {
       type: Boolean,
-      
+      default: null,
     },
   },
   methods: {
     toggleSelection() {
-      this.isSelected = true
+      this.isSelected = true;
       this.$emit('card-clicked', { answer: this.answer, isCorrect: this.isCorrect });
+    },
+    resetStyle() {
+      this.isSelected = false;
+    },
+  },
+  watch: {
+    answer() {
+      this.resetStyle();
     },
   },
 };
