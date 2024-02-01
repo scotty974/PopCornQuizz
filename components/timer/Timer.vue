@@ -3,16 +3,32 @@ import type { space } from 'postcss/lib/list';
   <div
     class="flex items-center justify-center w-20 h-20 bg-primary rounded-full"
   >
-    <span class="text-white text-2xl"> 1:00 </span>
+    <span class="text-white text-2xl"> {{ time }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    time: {
-      type: Number,
+  data() {
+    return {
+      time: 60,
+    };
+  },
+  computed: {
+    formattedTime() {
+      const minutes = Math.floor(this.time / 60);
+      const seconds = this.time % 60;
+      return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
     },
+  },
+  mounted() {
+    this.timerInterval = setInterval(() => {
+      if (this.time > 0) {
+        this.time--;
+      } else {
+        clearInterval(this.timerInterval);
+      }
+    }, 1000);
   },
 };
 </script>
