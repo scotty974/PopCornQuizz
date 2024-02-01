@@ -8,7 +8,7 @@
       'show-good-answer': showGoodAnswer,
     }"
   >
-    <span class="text-xl text-white text-center">{{ answer }}</span>
+    <span class="text-lg text-white text-center">{{ answer }}</span>
   </div>
 </template>
 
@@ -43,15 +43,13 @@ export default {
         goodAnswer: this.goodAnswer,
       });
       if (!this.isCorrect && this.goodAnswer) {
-        this.showGoodAnswer = true
-         
-
+        this.showGoodAnswer = true;
       }
     },
-    
+
     resetStyle() {
       this.isSelected = false;
-      this.showGoodAnswer = false; 
+      this.showGoodAnswer = false;
     },
   },
   watch: {
