@@ -1,5 +1,6 @@
 <script setup>
 import supabase from "../../lib/supabaseClient.js";
+import userCard from '../../components/userCard/userCard.js'
 </script>
 
 <template>
@@ -13,7 +14,9 @@ import supabase from "../../lib/supabaseClient.js";
   <section
     class="min-h-screen md:container md:m-auto px-2 flex justify-center items-center"
   >
-    <div class="w-full flex justify-center items-center z-20">
+  
+    <div class="w-full flex justify-around items-center z-20">
+      <UserCard :pseudo="user.userPseudo" :score="user.userScore"/>
       <LeaderBoard :users="users"></LeaderBoard>
     </div>
   </section>
@@ -25,9 +28,11 @@ export default {
     return {
       isLoading: true,
       users: [],
+      user : []
     };
   },
   mounted() {
+    this.handleUserData()
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);
@@ -48,6 +53,7 @@ export default {
       shootingStar.style.left = `${leftPosition}%`;
 
       nightContainer.appendChild(shootingStar);
+      
     }
   },
 
@@ -62,6 +68,10 @@ export default {
     sortUsers() {
       this.users.sort((a, b) => b.score - a.score);
     },
+     handleUserData(){
+      this.user =  userCard()
+      
+    }
   },
 };
 </script>
