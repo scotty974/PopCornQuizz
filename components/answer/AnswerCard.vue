@@ -1,13 +1,13 @@
 <template>
   <div
-    class="flex items-center justify-center w-56 h-20 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-answer hover:cursor-pointer"
+    class="flex items-center justify-center w-56 h-20 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-answer hover:cursor-pointer px-4"
     @click="toggleSelection"
     :class="{
       'correct-answer': isCorrect && isSelected,
       'wrong-answer': !isCorrect && isSelected,
     }"
   >
-    <span class="text-xl text-white">{{ answer }}</span>
+    <span class="text-xl text-white text-center">{{ answer }}</span>
   </div>
 </template>
 
