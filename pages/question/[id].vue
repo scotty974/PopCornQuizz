@@ -5,12 +5,16 @@ import supabase from "../../lib/supabaseClient.js";
 </script>
 
 <template>
+  
   <Header></Header>
+  <GameOver v-if="gameOver"/>
   <section
     class="min-h-screen md:container md:m-auto px-2 flex flex-col gap-7 justify-center items-center"
+ 
   >
     <QuestionCard :data="currentQuestion" @selected-Card="nextQuestion"></QuestionCard>
   </section>
+  
 </template>
 
 <script>
@@ -21,6 +25,7 @@ export default {
       route: useRoute(),
       currentIndex: ref(0),
       currentQuestion: ref({}),
+      gameOver : false
     };
   },
   async mounted() {
@@ -42,6 +47,9 @@ export default {
       setTimeout(() => {
         this.currentIndex ++
       this.handleQuestions()
+      if(this.currentIndex >= this.dataQuestions.length){
+        this.gameOver = true
+      }
       }, 500);
       
     }
