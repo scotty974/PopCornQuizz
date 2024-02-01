@@ -1,3 +1,6 @@
+<script setup>
+import questionsScore from '../questionCard/questionsScore.js'
+</script>
 <template>
   <div class="flex flex-col gap-7 items-center">
     <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"></div>
@@ -50,11 +53,13 @@ export default {
   },
   methods: {
     handleCardClicked(cardInfo) {
+      
       if (
         cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()
       ) {
         this.correctAnswer = true;
         cardInfo.isCorrect = this.correctAnswer;
+        questionsScore(this.data.score)
       } else {
         this.correctAnswer = false;
         cardInfo.isCorrect = this.correctAnswer;
