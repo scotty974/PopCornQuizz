@@ -9,14 +9,34 @@
       </div>
 
       <div class="flex flex-col gap-3">
-        <div class="flex justify-between">
-          <span class="text-white font-medium">1. Leo</span>
-          <span class="text-white">50</span>
+        <div
+          v-for="(user, index) in users"
+          :key="index"
+          class="flex justify-between"
+        >
+          <span class="text-white font-medium"
+            >{{ index + 1 }}. {{ user.username }}</span
+          >
+          <span class="text-white">{{ user.score }}</span>
         </div>
       </div>
     </div>
-    <button class="bg-white text-primary rounded-answer py-3">
-      Recommencer
-    </button>
+
+    <NuxtLink to="/level">
+      <button class="bg-white text-primary rounded-answer py-3 w-full">
+        Recommencer
+      </button>
+    </NuxtLink>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    users: {
+      type: Array,
+      default: () => [],
+    },
+  },
+};
+</script>

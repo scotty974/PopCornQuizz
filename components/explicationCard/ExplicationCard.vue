@@ -26,12 +26,14 @@
           Atteignez le sommet du leaderboard en obtenant le meilleur score.
         </p>
       </div>
-      <button
-        type="submit"
-        class="bg-primary py-3 px-3 mt-2 rounded-xl min-w-72 text-center font-bold text-2xl text-white"
-      >
-        Décoller
-      </button>
+      <NuxtLink to="/login">
+        <button
+          type="submit"
+          class="bg-primary py-3 px-3 mt-2 rounded-xl min-w-72 text-center font-bold text-2xl text-white w-full"
+        >
+          Décoller
+        </button>
+      </NuxtLink>
     </div>
   </div>
 </template>
