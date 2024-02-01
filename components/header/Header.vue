@@ -8,7 +8,7 @@
       >
     </nav>
   </header>
-  <Timer v-if="isQuestionPage" class="absolute right-0 m-8"></Timer>
+  <Timer v-if="isQuestionPage" class="absolute right-0 m-8" @timeout="handleTime"></Timer>
 </template>
 
 <script>
@@ -18,5 +18,11 @@ export default {
       return this.$route.name === "question-id";
     },
   },
+  methods : {
+    handleTime(){
+      this.$emit('time-zero')
+      
+    }
+  }
 };
 </script>

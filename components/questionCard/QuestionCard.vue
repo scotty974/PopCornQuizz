@@ -1,3 +1,6 @@
+<script setup>
+import questionsScore from '../questionCard/questionsScore.js'
+</script>
 <template>
   <div class="flex flex-col gap-7 items-center">
     <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"></div>
@@ -6,26 +9,30 @@
       <div class="flex gap-6">
         <AnswerCard
           :answer="data.true_answer"
-          :is-correct="correctAnswer"
+          :isCorrect="correctAnswer"
           @card-clicked="handleCardClicked"
+          :good-answer="true"
         ></AnswerCard>
 
         <AnswerCard
           :answer="data.false_answer_one"
-          :is-correct="correctAnswer"
+          :isCorrect="correctAnswer"
           @card-clicked="handleCardClicked"
+          :good-answer="false"
         ></AnswerCard>
       </div>
       <div class="flex gap-6">
         <AnswerCard
           :answer="data.false_answer_two"
-          :is-correct="correctAnswer"
+          :isCorrect="correctAnswer"
           @card-clicked="handleCardClicked"
+          :good-answer="false"
         ></AnswerCard>
         <AnswerCard
           :answer="data.false_anwser_three"
-          :is-correct="correctAnswer"
+          :isCorrect="correctAnswer"
           @card-clicked="handleCardClicked"
+          :good-answer="false"
         ></AnswerCard>
       </div>
     </div>
@@ -46,12 +53,17 @@ export default {
   },
   methods: {
     handleCardClicked(cardInfo) {
+      
       if (
         cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()
       ) {
         this.correctAnswer = true;
+        cardInfo.isCorrect = this.correctAnswer;
+        questionsScore(this.data.score)
       } else {
         this.correctAnswer = false;
+        cardInfo.isCorrect = this.correctAnswer;
+        questionsScore(0)
       }
 
       this.$emit("selected-Card");

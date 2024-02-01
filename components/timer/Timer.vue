@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       time: 60,
+      
     };
   },
   computed: {
@@ -27,6 +28,7 @@ export default {
         this.time--;
       } else {
         clearInterval(this.timerInterval);
+        this.$emit("timeout")
       }
     }, 1000);
   },

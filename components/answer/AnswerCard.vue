@@ -5,6 +5,7 @@
     :class="{
       'correct-answer': isCorrect && isSelected,
       'wrong-answer': !isCorrect && isSelected,
+      'show-good-answer': showGoodAnswer,
     }"
   >
     <span class="text-xl text-white text-center">{{ answer }}</span>
@@ -16,6 +17,7 @@ export default {
   data() {
     return {
       isSelected: false,
+      showGoodAnswer: false,
     };
   },
   props: {
@@ -27,6 +29,9 @@ export default {
       type: Boolean,
       default: null,
     },
+    goodAnswer: {
+      type: Boolean,
+    },
   },
   methods: {
     toggleSelection() {
@@ -35,10 +40,18 @@ export default {
       this.$emit("card-clicked", {
         answer: this.answer,
         isCorrect: this.isCorrect,
+        goodAnswer: this.goodAnswer,
       });
+      if (!this.isCorrect && this.goodAnswer) {
+        this.showGoodAnswer = true
+         
+
+      }
     },
+    
     resetStyle() {
       this.isSelected = false;
+      this.showGoodAnswer = false; 
     },
   },
   watch: {
@@ -54,6 +67,10 @@ export default {
   background-color: #2b9b63;
 }
 .wrong-answer {
-  background-color: #e63a46;
+  background-color: #e63a46 !important;
+  cursor: not-allowed;
+}
+.show-good-answer {
+  background-color: #2b9b63;
 }
 </style>

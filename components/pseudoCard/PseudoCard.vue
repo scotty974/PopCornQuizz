@@ -35,6 +35,7 @@ export default {
   data() {
     return {
       pseudo: null,
+      score : 0,
     };
   },
   methods: {
@@ -42,7 +43,7 @@ export default {
       this.pseudo = this.pseudo || null;
 
       try {
-        const result = await defineGuardPseudo(this.pseudo);
+        const result = await defineGuardPseudo(this.pseudo, this.score);
         if (result === false) {
         } else {
           result;
