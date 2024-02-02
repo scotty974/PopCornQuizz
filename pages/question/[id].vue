@@ -30,7 +30,7 @@ export default {
       gameOver: false,
     };
   },
-  async mounted() {
+  async created() {
     await this.handleQuestions();
   },
 

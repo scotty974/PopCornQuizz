@@ -44,14 +44,23 @@ export default {
   data() {
     return {
       correctAnswer: null,
+      shuffleAnswer : []
     };
   },
   props: {
     data: {
       type: Object,
+      immediate : true
     },
   },
+  mounted(){
+    this.shuffleAnswerIndex()
+  },
   methods: {
+    shuffleAnswerIndex(){
+      this.shuffleAnswer = [{text : this.data.true_answer},{text : this.data.false_answer_one},{text : this.data.false_answer_two},{text : this.data.false_answer_three}]
+      
+    }, 
     handleCardClicked(cardInfo) {
       if (
         cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()
