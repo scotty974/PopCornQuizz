@@ -20,11 +20,13 @@ module.exports = {
       },
       height: {
         planetsSize: 500,
+        leaderboard: "612px",
       },
 
       width: {
         cardQuestion: "606px",
         cardLeaderboard: "480px",
+        cardClassement: "272px",
       },
       borderRadius: {
         answer: "10px",
