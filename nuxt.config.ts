@@ -11,5 +11,8 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/image',"@tresjs/nuxt"
-  ]
+  ],
+  tres: {
+    devtools: true,
+  },
 })
