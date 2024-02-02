@@ -1,3 +1,4 @@
+User
 <script setup>
 import { useRoute } from "vue-router";
 import { ref } from "vue";
@@ -30,8 +31,8 @@ export default {
       gameOver: false,
     };
   },
-  async created() {
-    await this.handleQuestions();
+  async mounted() {
+    this.handleQuestions();
   },
 
   methods: {
@@ -41,13 +42,13 @@ export default {
         .select("*")
         .eq("level", this.route.params.id);
       this.dataQuestions = data;
-
-      // Sélectionner une question de manière aléatoire
-      const randomIndex = Math.floor(Math.random() * this.dataQuestions.length);
-      this.currentQuestion = this.dataQuestions[randomIndex];
+      if (this.dataQuestions.length > 0) {
+        this.currentQuestion = this.dataQuestions[this.currentIndex];
+      }
     },
     nextQuestion() {
       setTimeout(() => {
+        this.currentIndex++;
         this.handleQuestions();
         if (this.currentIndex >= this.dataQuestions.length) {
           this.gameOver = true;
