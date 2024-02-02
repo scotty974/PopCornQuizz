@@ -1,5 +1,5 @@
 <script setup>
-import questionsScore from '../questionCard/questionsScore.js'
+import questionsScore from "../questionCard/questionsScore.js";
 </script>
 <template>
   <div class="flex flex-col gap-7 items-center">
@@ -53,17 +53,16 @@ export default {
   },
   methods: {
     handleCardClicked(cardInfo) {
-      
       if (
         cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()
       ) {
         this.correctAnswer = true;
         cardInfo.isCorrect = this.correctAnswer;
-        questionsScore(this.data.score)
+        questionsScore(this.data.score);
       } else {
         this.correctAnswer = false;
         cardInfo.isCorrect = this.correctAnswer;
-        questionsScore(0)
+        questionsScore(0);
       }
 
       this.$emit("selected-Card");
