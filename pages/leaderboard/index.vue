@@ -76,8 +76,8 @@ export default {
       );
       if (userIndex !== -1) {
         this.userPosition = userIndex + 1; // Ajoute 1 car les indices commencent à 0
-        console.log(this.userPosition);
       }
+      
     },
     handleUserData() {
       this.user = userCard();
