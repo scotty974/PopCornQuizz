@@ -59,7 +59,7 @@ export default {
   methods: {
     shuffleAnswerIndex(){
       this.shuffleAnswer = [{text : this.data.true_answer},{text : this.data.false_answer_one},{text : this.data.false_answer_two},{text : this.data.false_answer_three}]
-      console.log(this.shuffleAnswer)
+      
     }, 
     handleCardClicked(cardInfo) {
       if (
