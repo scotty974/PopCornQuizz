@@ -20,6 +20,7 @@ module.exports = {
       },
       height: {
         planetsSize: 500,
+        leaderboard: "612px",
       },
 
       width: {

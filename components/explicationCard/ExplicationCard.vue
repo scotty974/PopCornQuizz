@@ -6,30 +6,30 @@
         >Testez vos connaissances astronomiques</span
       >
     </div>
-    <div class="flex flex-col gap-8">
-      <div class="flex gap-4">
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-4 items-center">
         <img class="w-16" src="assets/media/view.svg" alt="" />
-        <p class="text-white text-lg w-96 text-wrap">
+        <p class="text-white text-lg w-96 text-wrap leading-6">
           Choisissez parmi les niveaux débutant, intermédiaire ou expert selon
           votre audace.
         </p>
       </div>
-      <div class="flex gap-4">
+      <div class="flex gap-4 items-center">
         <img class="w-16" src="assets/media/fusee.svg" alt="" />
-        <p class="text-white text-lg w-96 text-wrap">
+        <p class="text-white text-lg w-96 text-wrap leading-6">
           Répondez au plus grand nombre de questions possibles en 1 minute.
         </p>
       </div>
-      <div class="flex gap-4">
+      <div class="flex gap-4 items-center">
         <img class="w-16" src="assets/media/sommet.svg" alt="" />
-        <p class="text-white text-lg w-96 text-wrap">
+        <p class="text-white text-lg w-96 text-wrap leading-6">
           Atteignez le sommet du leaderboard en obtenant le meilleur score.
         </p>
       </div>
       <NuxtLink to="/login">
         <button
           type="submit"
-          class="bg-primary py-3 px-3 mt-2 rounded-xl min-w-72 text-center font-bold text-2xl text-white w-full"
+          class="bg-primary py-3 px-3 mt-10 rounded-xl min-w-72 text-center font-bold text-2xl text-white w-full"
         >
           Décoller
         </button>
