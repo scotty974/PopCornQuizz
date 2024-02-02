@@ -22,15 +22,13 @@ export default {
   },
   props: {
     answer: {
-      type: Object,
+      type: String,
       required: true,
     },
     isCorrect: {
       type: Boolean,
-      default: null,
-    },
-    goodAnswer: {
-      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   methods: {

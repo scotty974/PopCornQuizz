@@ -8,13 +8,13 @@ import supabase from "../../lib/supabaseClient.js";
 <template>
   <main :class="{ 'fade-out': gameOver }" @transitionend="handleTransitionEnd">
     <Header @time-zero="handleTime"></Header>
-
     <section
       class="min-h-screen md:container md:m-auto px-2 flex flex-col gap-7 justify-center items-center"
     >
       <QuestionCard
-        :data="currentQuestion"
-        @selected-Card="nextQuestion"
+        v-if="dataLoaded"
+        :allQuestions="dataQuestions"
+        @game-over="handleTime"
       ></QuestionCard>
     </section>
   </main>
@@ -26,9 +26,8 @@ export default {
     return {
       dataQuestions: ref([]),
       route: useRoute(),
-      currentIndex: ref(0),
-      currentQuestion: ref({}),
       gameOver: false,
+      dataLoaded: false,
     };
   },
   async mounted() {
@@ -41,22 +40,17 @@ export default {
         .from("questions")
         .select("*")
         .eq("level", this.route.params.id);
+
+      // get 3 itens from dataQuestions
+
       this.dataQuestions = data;
-      if (this.dataQuestions.length > 0) {
-        this.currentQuestion = this.dataQuestions[this.currentIndex];
-      }
+      this.dataLoaded = true;
     },
-    nextQuestion() {
-      setTimeout(() => {
-        this.currentIndex++;
-        this.handleQuestions();
-        if (this.currentIndex >= this.dataQuestions.length) {
-          this.gameOver = true;
-          return navigateTo("/leaderboard");
-        }
-      }, 500);
-    },
+
     handleTime() {
+      this.gameOver = true;
+    },
+    dummy() {
       this.gameOver = true;
     },
     handleTransitionEnd() {

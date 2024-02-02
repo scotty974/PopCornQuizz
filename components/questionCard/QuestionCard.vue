@@ -1,38 +1,19 @@
 <script setup>
 import questionsScore from "../questionCard/questionsScore.js";
+import { ref } from "vue";
 </script>
 <template>
   <div class="flex flex-col gap-7 items-center">
     <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"></div>
-    <span class="question text-2xl text-white">{{ data.question }}</span>
+    <span class="question text-2xl text-white">{{ currentQ.question }}</span>
     <div class="flex flex-col gap-10">
       <div class="flex gap-6">
         <AnswerCard
-          :answer="data.true_answer"
-          :isCorrect="correctAnswer"
+          v-for="(answer, index) in currentAnswers"
+          :key="index"
+          :answer="answer.text"
+          :isCorrect="answer.isCorrect"
           @card-clicked="handleCardClicked"
-          :good-answer="true"
-        ></AnswerCard>
-
-        <AnswerCard
-          :answer="data.false_answer_one"
-          :isCorrect="correctAnswer"
-          @card-clicked="handleCardClicked"
-          :good-answer="false"
-        ></AnswerCard>
-      </div>
-      <div class="flex gap-6">
-        <AnswerCard
-          :answer="data.false_answer_two"
-          :isCorrect="correctAnswer"
-          @card-clicked="handleCardClicked"
-          :good-answer="false"
-        ></AnswerCard>
-        <AnswerCard
-          :answer="data.false_answer_three"
-          :isCorrect="correctAnswer"
-          @card-clicked="handleCardClicked"
-          :good-answer="false"
         ></AnswerCard>
       </div>
     </div>
@@ -42,39 +23,56 @@ import questionsScore from "../questionCard/questionsScore.js";
 <script>
 export default {
   data() {
+    // useState
     return {
       correctAnswer: null,
-      shuffleAnswer : []
+      currentAnswers: ref([]),
+      currentQ: ref({}),
+      currentIndex: 0,
     };
   },
   props: {
-    data: {
+    // props
+    allQuestions: {
       type: Object,
-      immediate : true
     },
   },
-  mounted(){
-    this.shuffleAnswerIndex()
+  mounted() {
+    //useEffect []
+    this.shuffleQuestions();
+    console.log(this.currentQ);
+    this.shuffleAnswers();
+    console.log(this.currentAnswers);
   },
   methods: {
-    shuffleAnswerIndex(){
-      this.shuffleAnswer = [{text : this.data.true_answer},{text : this.data.false_answer_one},{text : this.data.false_answer_two},{text : this.data.false_answer_three}]
-      
-    }, 
+    // fonctions
+    shuffleAnswers() {
+      this.currentAnswers = [
+        { text: this.currentQ.true_answer, isCorrect: true },
+        { text: this.currentQ.false_answer_one, isCorrect: false },
+        { text: this.currentQ.false_answer_two, isCorrect: false },
+        { text: this.currentQ.false_answer_three, isCorrect: false },
+      ];
+      this.currentAnswers = this.currentAnswers.sort(() => Math.random() - 0.5);
+    },
+    shuffleQuestions() {
+      const allQuestions = this.allQuestions.sort(() => Math.random() - 0.5);
+      this.currentQ = allQuestions[this.currentIndex];
+    },
     handleCardClicked(cardInfo) {
-      if (
-        cardInfo.answer.toLowerCase() === this.data.true_answer.toLowerCase()
-      ) {
-        this.correctAnswer = true;
-        cardInfo.isCorrect = this.correctAnswer;
-        questionsScore(this.data.score);
-      } else {
-        this.correctAnswer = false;
-        cardInfo.isCorrect = this.correctAnswer;
-        questionsScore(0);
+      if (cardInfo.isCorrect) {
+        questionsScore(this.currentQ.score);
       }
-
-      this.$emit("selected-Card");
+      this.currentIndex++;
+      if (this.currentIndex > this.allQuestions.length) {
+        this.$emit("game-over");
+      } else {
+        setTimeout(() => {
+          this.currentQ = this.allQuestions[this.currentIndex];
+          this.shuffleAnswers();
+        }, 500);
+      }
+      // this.$emit("selected-Card");
     },
   },
 };
