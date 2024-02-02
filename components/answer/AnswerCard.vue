@@ -8,7 +8,7 @@
       'show-good-answer': showGoodAnswer,
     }"
   >
-    <span class="text-lg text-white text-center">{{ answer }}</span>
+    <span class="text-base text-white text-center">{{ answer }}</span>
   </div>
 </template>
 
