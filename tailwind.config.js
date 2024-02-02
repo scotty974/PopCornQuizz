@@ -25,6 +25,7 @@ module.exports = {
       width: {
         cardQuestion: "606px",
         cardLeaderboard: "480px",
+        cardClassement: "272px",
       },
       borderRadius: {
         answer: "10px",
