@@ -59,7 +59,7 @@ export default {
         this.$refs.submitButton.classList.add("bg-textColor");
         this.$refs.submitButton.setAttribute("disabled", "true");
       }
-      console.log(this.pseudo);
+      
     },
   },
 };

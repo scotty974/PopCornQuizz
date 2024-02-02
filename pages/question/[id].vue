@@ -8,17 +8,15 @@ import supabase from "../../lib/supabaseClient.js";
   <main :class="{ 'fade-out': gameOver }" @transitionend="handleTransitionEnd">
     <Header @time-zero="handleTime"></Header>
 
-<section
-  class="min-h-screen md:container md:m-auto px-2 flex flex-col gap-7 justify-center items-center"
-  
->
-  <QuestionCard
-    :data="currentQuestion"
-    @selected-Card="nextQuestion"
-  ></QuestionCard>
-</section>
+    <section
+      class="min-h-screen md:container md:m-auto px-2 flex flex-col gap-7 justify-center items-center"
+    >
+      <QuestionCard
+        :data="currentQuestion"
+        @selected-Card="nextQuestion"
+      ></QuestionCard>
+    </section>
   </main>
-  
 </template>
 
 <script>
@@ -33,7 +31,7 @@ export default {
     };
   },
   async mounted() {
-    this.handleQuestions();
+    await this.handleQuestions();
   },
 
   methods: {
@@ -43,26 +41,26 @@ export default {
         .select("*")
         .eq("level", this.route.params.id);
       this.dataQuestions = data;
-      if (this.dataQuestions.length > 0) {
-        this.currentQuestion = this.dataQuestions[this.currentIndex];
-      }
+
+      // Sélectionner une question de manière aléatoire
+      const randomIndex = Math.floor(Math.random() * this.dataQuestions.length);
+      this.currentQuestion = this.dataQuestions[randomIndex];
     },
     nextQuestion() {
       setTimeout(() => {
-        this.currentIndex++;
         this.handleQuestions();
         if (this.currentIndex >= this.dataQuestions.length) {
-          this.gameOver = true
-          return navigateTo("/leaderboard")
+          this.gameOver = true;
+          return navigateTo("/leaderboard");
         }
       }, 500);
     },
     handleTime() {
-      this.gameOver = true
+      this.gameOver = true;
     },
     handleTransitionEnd() {
       if (this.gameOver) {
-       return navigateTo("/leaderboard")
+        return navigateTo("/leaderboard");
       }
     },
   },
