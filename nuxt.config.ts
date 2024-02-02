@@ -10,6 +10,6 @@ export default defineNuxtConfig({
 
   },
   modules: [
-    '@nuxt/image',
+    '@nuxt/image',"@tresjs/nuxt"
   ]
 })
