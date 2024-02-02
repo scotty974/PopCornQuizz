@@ -16,7 +16,7 @@
         <p class="text-white text-xl">Ton classement :</p>
         <p class="text-white text-bold"></p>
         <div
-          class="flex h-full w-full justify-center bg-primary bg-opacity-50 rounded-answer px-5 py-3"
+          class="flex h-full w-full justify-center bg-primary rounded-answer px-5 py-3"
         >
           <p class="text-white text-2xl">
             {{ userPosition }} <span v-if="userPosition === 1">er</span>

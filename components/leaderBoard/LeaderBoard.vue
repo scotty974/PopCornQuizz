@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
     <div
-      class="flex flex-col w-cardLeaderboard h-leaderboard bg-primary rounded-leaderboard px-8 py-5"
+      class="flex flex-col w-cardLeaderboard h-full bg-primary rounded-leaderboard px-8 py-5"
     >
       <div class="flex flex-col items-center">
         <h2 class="text-white text-2xl">LeaderBoard</h2>
@@ -15,7 +15,10 @@
         >
           <div
             class="bg-textSecondary bg-opacity-50 rounded-answer flex justify-between w-full p-3"
-            :class="{ 'top-10-background': position === index + 1 }"
+            :class="{
+              'top-10-background': position === index + 1,
+              'top-10-backgroundBis': position !== index + 1 && index % 2 === 0,
+            }"
           >
             <p
               :class="{ 'top-10-text': position === index + 1 }"
@@ -57,7 +60,9 @@ export default {
 <style scoped>
 .top-10-background {
   background-color: white;
-  color: #0466c8 !important;
+}
+.top-10-backgroundBis {
+  background-color: rgba(144, 163, 191, 0.3);
 }
 .top-10-text {
   color: #0466c8 !important;
