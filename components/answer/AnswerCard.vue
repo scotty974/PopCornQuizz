@@ -6,6 +6,7 @@
       'correct-answer': isCorrect && isSelected,
       'wrong-answer': !isCorrect && isSelected,
       'show-good-answer': showGoodAnswer,
+      bodyrRedOrGreen: isCorrect && isSelected,
     }"
   >
     <span class="text-base text-white text-center">{{ answer }}</span>
@@ -69,4 +70,7 @@ export default {
 .show-good-answer {
   background-color: #2b9b63;
 }
+/* body {
+  background-color: #2b9b63 !important;
+} */
 </style>

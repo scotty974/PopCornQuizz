@@ -42,9 +42,7 @@ export default {
   mounted() {
     //useEffect []
     this.shuffleQuestions();
-    console.log(this.currentQ);
     this.shuffleAnswers();
-    console.log(this.currentAnswers);
   },
   methods: {
     // fonctions
@@ -64,6 +62,9 @@ export default {
     handleCardClicked(cardInfo) {
       if (cardInfo.isCorrect) {
         questionsScore(this.currentQ.score);
+        this.$emit("selected-Card");
+      } else {
+        this.$emit("show-red-div");
       }
       this.currentIndex++;
       if (this.currentIndex > this.allQuestions.length) {
