@@ -5,9 +5,11 @@ import { ref } from "vue";
 <template>
   <div class="flex flex-col gap-7 items-center">
     <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"></div>
-    <span class="question text-2xl text-white">{{ currentQ.question }}</span>
+    <span class="question text-2xl px-72 text-center text-white">{{
+      currentQ.question
+    }}</span>
     <div class="flex flex-col gap-10">
-      <div class="flex gap-6">
+      <div class="grid grid-cols-2 gap-6">
         <AnswerCard
           v-for="(answer, index) in currentAnswers"
           :key="index"
