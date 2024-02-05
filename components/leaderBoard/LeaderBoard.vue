@@ -43,6 +43,8 @@ export default {
   data() {
     return {
       isTopTen: false,
+      showGreenDiv: false,
+      showRedDiv: false,
     };
   },
   props: {
@@ -52,6 +54,15 @@ export default {
     },
     position: {
       type: Number,
+    },
+  },
+  methods: {
+    handleCorrectAnswerClicked() {
+      if (this.isCorrect) {
+        this.showGreenDiv = true;
+      } else {
+        this.showRedDiv = true;
+      }
     },
   },
 };

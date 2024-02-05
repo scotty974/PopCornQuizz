@@ -8,13 +8,22 @@ import supabase from "../../lib/supabaseClient.js";
 <template>
   <main :class="{ 'fade-out': gameOver }" @transitionend="handleTransitionEnd">
     <Header @time-zero="handleTime"></Header>
+    <div
+      class="absolute w-screen h-screen z-30 pointer-events-none animate-ping bg-opacity-10 duration-1000"
+      :class="{
+        'bg-green-600': showColorDivGreen,
+        'bg-red-600': showColorDivRed,
+      }"
+    ></div>
     <section
-      class="min-h-screen md:container md:m-auto px-2 flex flex-col gap-7 justify-center items-center"
+      class="min-h-screen md:container md:m-auto px-2 flex flex-col gap-7 justify-center items-center z-10"
     >
       <QuestionCard
         v-if="dataLoaded"
         :allQuestions="dataQuestions"
         @game-over="handleTime"
+        @selected-Card="showGreenDiv"
+        @show-red-div="showRedDiv"
       ></QuestionCard>
     </section>
   </main>
@@ -28,6 +37,8 @@ export default {
       route: useRoute(),
       gameOver: false,
       dataLoaded: false,
+      showColorDivRed: false,
+      showColorDivGreen: false,
     };
   },
   async mounted() {
@@ -57,6 +68,18 @@ export default {
       if (this.gameOver) {
         return navigateTo("/leaderboard");
       }
+    },
+    showGreenDiv() {
+      this.showColorDivGreen = true;
+      setTimeout(() => {
+        this.showColorDivGreen = false;
+      }, 1000);
+    },
+    showRedDiv() {
+      this.showColorDivRed = true;
+      setTimeout(() => {
+        this.showColorDivRed = false;
+      }, 1000);
     },
   },
 };
