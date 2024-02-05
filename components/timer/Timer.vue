@@ -1,9 +1,10 @@
 import type { space } from 'postcss/lib/list';
 <template>
   <div
-    class="flex items-center justify-center w-20 h-20 bg-primary rounded-full"
+    :class="{ 'bg-red-500': time <= 15, 'animate-pulse-slow': time <= 15 }"
+    class="flex items-center justify-center w-32 h-32 bg-primary rounded-full"
   >
-    <span class="text-white text-2xl"> {{ time }}</span>
+    <span class="text-white text-5xl"> {{ time }}</span>
   </div>
 </template>
 
