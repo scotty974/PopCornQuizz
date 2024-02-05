@@ -5,7 +5,16 @@
 @font-face {
   font-family: "Space Grotesk";
   src: url("../assets/fonts/SpaceGrotesk-Bold.ttf");
+  font-weight: bold;
+
 }
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../assets/fonts/SpaceGrotesk-Medium.ttf");
+  font-weight: medium;
+}
+
 /* body {
   background: #2A3164;
   background-image: url('../assets/media/star.png');
