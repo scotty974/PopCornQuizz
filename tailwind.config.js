@@ -32,6 +32,9 @@ module.exports = {
         answer: "10px",
         leaderboard: "20px",
       },
+      animation: {
+        "pulse-slow": "pulse 1s linear infinite",
+      },
     },
   },
   plugins: [],
