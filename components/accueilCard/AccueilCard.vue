@@ -2,7 +2,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
 '#build/components';
 <template>
   <div class="flex flex-col items-center gap-6">
-    <h1 class="text-4xl font-bold text-white">SpaceQuizz</h1>
+    <img src="/main-logo.png" alt="logo space quizz" class="w-1/4">
 
     
     <NuxtLink
