@@ -17,6 +17,7 @@ import defineGuardPseudo from "../pseudoCard/pseudoGuard.ts";
         placeholder="spaceJoe"
         v-model="pseudo"
         @change="handleInputChange"
+        maxlength="10"
       />
 
       <button

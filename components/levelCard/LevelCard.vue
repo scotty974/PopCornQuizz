@@ -16,7 +16,7 @@ const img = useImage();
         :class="{ 'selected-card': isSelected }"
       >
         <img
-          :src="`_nuxt/assets/media/${image}`"
+          :src="`/${image}`"
           :alt="level"
           class="w-40 h-40"
         />
