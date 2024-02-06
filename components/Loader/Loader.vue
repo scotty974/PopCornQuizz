@@ -1,8 +1,10 @@
 <template>
-    
-    <div class="sky">
-      <div v-for="index in 20" :key="index" class="loader"></div>
+    <div>
+    <div class="night-loader">
+      <div v-for="index in 20" :key="index" class="shooting_star"></div>
     </div>
+  </div>
+    
    
    
 </template>
@@ -11,7 +13,7 @@
 export default {
   mounted() {
     // JavaScript pour générer les étoiles
-    const nightContainer = document.querySelector(".night");
+    const nightContainer = document.querySelector(".night-loader");
 
     for (let i = 0; i < 20; i++) {
       const shootingStar = document.createElement("div");
