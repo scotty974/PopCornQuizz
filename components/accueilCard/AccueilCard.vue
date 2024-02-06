@@ -2,7 +2,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
 '#build/components';
 import { motion } from "framer-motion"
 <template>
-  <div v-motion-fade>
+  <div>
     <NuxtLink to="/explication" class="flex flex-col items-center justify-center gap-6 h-screen">
     <img src="/main-logo.png" alt="logo space quizz" class="w-1/4" />
 
