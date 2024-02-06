@@ -77,18 +77,34 @@ export default {
       if (userIndex !== -1) {
         this.userPosition = userIndex + 1; // Ajoute 1 car les indices commencent à 0
       }
-      
     },
     handleUserData() {
       this.user = userCard();
     },
     async sendData() {
-      await supabase
+      // verifier si l'utilisateur existe dans la base
+
+      const { data } = await supabase
         .from("user")
-        .insert([
-          { username: this.user.userPseudo, score: this.user.userScore },
-        ])
-        .select();
+        .select("*")
+        .eq("username", this.user.userPseudo);
+
+      if (data && data.length > 0) {
+        await supabase
+          .from("user")
+          .update({ score: this.user.userScore })
+          .eq("username", this.user.userPseudo);
+          
+         
+      } else{
+        await supabase
+          .from("user")
+          .insert([
+            { username: this.user.userPseudo, score: this.user.userScore },
+          ])
+          .select();
+          
+      }
       this.handleUsers();
     },
   },
