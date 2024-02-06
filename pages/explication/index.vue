@@ -1,6 +1,15 @@
 <template>
   <main>
-    <Header />
+    <!-- <Header /> -->
+    <header class="px-6 py-4 w-screen">
+      <NuxtLink to="/">
+        <img
+          class="m-3"
+          src="/assets/media/logoSpaceQuizzFinalSmall.svg"
+          alt=""
+        />
+      </NuxtLink>
+    </header>
     <div>
       <div class="night">
         <div v-for="index in 20" :key="index" class="shooting_star"></div>
@@ -8,7 +17,7 @@
     </div>
 
     <section
-      class="min-h-screen md:container md:m-auto px-2 flex justify-center items-center"
+      class="md:container md:m-auto px-2 flex justify-center items-center"
       v-motion-fade
     >
       <div class="w-full flex justify-center items-center z-20">
