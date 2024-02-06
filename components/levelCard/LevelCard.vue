@@ -42,9 +42,9 @@ export default {
     image: {
       type: String,
     },
-    id : {
-      type : Number
-    }
+    id: {
+      type: Number,
+    },
   },
   methods: {
     toggleSelection() {

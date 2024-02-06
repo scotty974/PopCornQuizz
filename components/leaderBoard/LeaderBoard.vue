@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div v-motion-slide-visible-once-right class="flex flex-col">
     <div
       class="flex flex-col w-cardLeaderboard h-full bg-primary rounded-leaderboard px-8 py-5"
     >
@@ -76,6 +76,6 @@ export default {
   background-color: rgba(144, 163, 191, 0.3);
 }
 .top-10-text {
-  color: #0466c8 !important;
+  color: #9143ed !important;
 }
 </style>

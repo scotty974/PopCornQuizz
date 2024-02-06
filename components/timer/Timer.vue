@@ -1,6 +1,7 @@
 import type { space } from 'postcss/lib/list';
 <template>
   <div
+    v-motion-slide-visible-top
     :class="{ 'bg-red-500': time <= 15, 'animate-pulse-slow': time <= 15 }"
     class="flex items-center justify-center w-32 h-32 bg-primary rounded-full"
   >

@@ -1,5 +1,6 @@
 <template>
   <div
+    v-motion-slide-visible-bottom
     class="flex items-center justify-center w-56 h-20 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-answer hover:cursor-pointer px-4"
     @click="toggleSelection"
     :class="{

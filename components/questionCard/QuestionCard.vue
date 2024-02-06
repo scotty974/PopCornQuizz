@@ -3,7 +3,7 @@ import questionsScore from "../questionCard/questionsScore.js";
 import { ref } from "vue";
 </script>
 <template>
-  <div class="flex flex-col gap-7 items-center">
+  <div v-motion-slide-visible-top class="flex flex-col gap-7 items-center">
     <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"></div>
     <span class="question text-2xl px-72 text-center text-white">{{
       currentQ.question
