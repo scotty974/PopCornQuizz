@@ -69,26 +69,49 @@ export default {
     //fonction pour filtrer l'affichage des users par rapport au score (du plus grand au plus petit)
     sortUsers() {
       this.users.sort((a, b) => b.score - a.score);
-      this.users = this.users.slice(0, 10);
 
       const userIndex = this.users.findIndex(
         (user) => user.username === this.user.userPseudo
       );
+
+      // Mettez à jour userPosition en fonction de la position de l'utilisateur
       if (userIndex !== -1) {
         this.userPosition = userIndex + 1; // Ajoute 1 car les indices commencent à 0
+      } else {
+        // L'utilisateur n'est pas dans les 10 premiers, mais on peut toujours afficher son classement
+        const userRank = this.users.findIndex(
+          (user) => user.score < this.user.userScore
+        );
+
+        this.userPosition =
+          userRank !== -1 ? userRank + 1 : this.users.length + 1;
       }
-      
     },
+
     handleUserData() {
       this.user = userCard();
     },
     async sendData() {
-      await supabase
+      // verifier si l'utilisateur existe dans la base
+
+      const { data } = await supabase
         .from("user")
-        .insert([
-          { username: this.user.userPseudo, score: this.user.userScore },
-        ])
-        .select();
+        .select("*")
+        .eq("username", this.user.userPseudo);
+
+      if (data && data.length > 0) {
+        await supabase
+          .from("user")
+          .update({ score: this.user.userScore })
+          .eq("username", this.user.userPseudo);
+      } else {
+        await supabase
+          .from("user")
+          .insert([
+            { username: this.user.userPseudo, score: this.user.userScore },
+          ])
+          .select();
+      }
       this.handleUsers();
     },
   },

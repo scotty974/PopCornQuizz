@@ -4,7 +4,7 @@ import { ref } from "vue";
 </script>
 <template>
   <div v-motion-slide-visible-top class="flex flex-col gap-7 items-center">
-    <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"></div>
+    <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl"><img :src="currentQ.picture_question" alt="illustration logo" class="w-full h-full"></div>
     <span class="question text-2xl px-72 text-center text-white">{{
       currentQ.question
     }}</span>
@@ -58,6 +58,7 @@ export default {
     shuffleQuestions() {
       const allQuestions = this.allQuestions.sort(() => Math.random() - 0.5);
       this.currentQ = allQuestions[this.currentIndex];
+      console.log(this.currentQ)
     },
     handleCardClicked(cardInfo) {
       if (cardInfo.isCorrect) {
