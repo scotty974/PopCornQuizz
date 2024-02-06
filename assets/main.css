@@ -176,46 +176,9 @@ body {
   }
 }
 
-.loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(
-    -45deg,
-    rgba(95, 145, 255, 1),
-    rgba(0, 0, 255, 0)
-  );
-  border-radius: 999px;
-  filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
-  animation: tail 3000ms ease-in-out infinite,
-    shooting 3000ms ease-in-out infinite;
-}
 
-.loader::before,
-.loader::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 1px);
-  right: 0;
-  width: 30px;
-  height: 2px;
-  background: linear-gradient(
-    -45deg,
-    rgba(0, 0, 255, 0),
-    rgba(95, 145, 255, 1),
-    rgba(0, 0, 255, 0)
-  );
-  transform: translateX(50%) rotateZ(45deg);
-  border-radius: 100%;
-  animation: shining 3000ms ease-in-out infinite;
-}
 
-.loader::after {
-  transform: translateX(50%) rotateZ(-45deg);
-}
+
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease-out;

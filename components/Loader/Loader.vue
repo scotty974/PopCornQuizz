@@ -1,14 +1,15 @@
 <template>
-  <div class="loader-container">
-    <span class="loader"></span>
+  <div class="absolute w-screen h-screen bg-black z-20">
+    <div class="loader-container absolute top-1/2 left-1/2">
+      <span class="loader"></span>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .loader-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+ width: 25%;
+ 
   transform: translate(-50%, -50%);
 }
 
@@ -31,7 +32,7 @@
   top: 0;
   left: 0;
   box-sizing: border-box;
-  animation: animloader 2s linear infinite;
+  animation: animloader 5s linear infinite;
 }
 
 @keyframes animloader {
