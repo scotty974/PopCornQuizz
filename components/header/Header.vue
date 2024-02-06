@@ -2,7 +2,11 @@
   <header class="absolute h-52 px-6 py-4 w-screen">
     <nav>
       <NuxtLink to="/">
-        <img class="m-3" src="/assets/media/logoSpaceQuizz3.svg" alt="" />
+        <img
+          class="m-3"
+          src="/assets/media/logoSpaceQuizzFinalSmall.svg"
+          alt=""
+        />
       </NuxtLink>
     </nav>
   </header>

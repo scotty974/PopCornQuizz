@@ -22,7 +22,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
       class="flex flex-col items-center justify-center gap-6 h-screen w-screen"
     >
       <img
-        src="/assets/media/logoQuizzHome.svg"
+        src="/assets/media/logoSpaceQuizzFinal.svg"
         alt="logo space quizz"
         class="w-96"
       />

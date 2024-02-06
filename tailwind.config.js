@@ -13,10 +13,11 @@ module.exports = {
       colors: {
         textColor: "#747DB5",
         bgColor: "#2A3164",
-        primary: "#9143ED",
+        primary: "#006AF0",
         blueSecondary: "#30376A",
         textSecondary: "#90A3BF",
         bgLevel: "#3E4578",
+        beige: "#EDDCD2",
       },
       height: {
         planetsSize: 500,
