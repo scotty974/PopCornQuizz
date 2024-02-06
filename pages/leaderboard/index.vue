@@ -66,7 +66,6 @@ export default {
       this.sortUsers();
     },
 
-    //fonction pour filtrer l'affichage des users par rapport au score (du plus grand au plus petit)
     sortUsers() {
       this.users.sort((a, b) => b.score - a.score);
 
@@ -84,8 +83,11 @@ export default {
         );
 
         this.userPosition =
-          userRank !== -1 ? userRank + 1 : this.users.length + 1;
+          userRank !== -1 && userRank < 10 ? userRank + 1 : null;
       }
+
+      // Limitez la liste aux 10 premiers utilisateurs
+      this.users = this.users.slice(0, 10);
     },
 
     handleUserData() {

@@ -76,6 +76,6 @@ export default {
   background-color: rgba(144, 163, 191, 0.3);
 }
 .top-10-text {
-  color: #9143ed !important;
+  color: #006AF0 !important;
 }
 </style>
