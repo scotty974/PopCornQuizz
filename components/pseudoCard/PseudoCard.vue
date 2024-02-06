@@ -3,12 +3,15 @@ import defineGuardPseudo from "../pseudoCard/pseudoGuard.ts";
 </script>
 <template>
   <div class="flex flex-col items-center gap-6">
-    <h2 class="text-3xl font-bold text-white">Choisir votre pseudo</h2>
+    <h2 v-motion-slide-top class="text-3xl font-bold text-white">
+      Choisir votre pseudo
+    </h2>
     <form
       class="flex flex-col items-center gap-6"
       @submit.prevent="setLocalPseudo"
     >
       <input
+        v-motion-slide-top
         class="bg-blueSecondary px-8 rounded-lg w-72 h-10 text-white"
         type="text"
         placeholder="spaceJoe"
@@ -17,6 +20,8 @@ import defineGuardPseudo from "../pseudoCard/pseudoGuard.ts";
       />
 
       <button
+        v-motion-slide-bottom
+        :delay="100"
         :class="{
           'bg-primary': pseudo !== null,
           'bg-textColor': pseudo === null,
@@ -35,7 +40,7 @@ export default {
   data() {
     return {
       pseudo: null,
-      score : 0,
+      score: 0,
     };
   },
   methods: {
@@ -59,7 +64,6 @@ export default {
         this.$refs.submitButton.classList.add("bg-textColor");
         this.$refs.submitButton.setAttribute("disabled", "true");
       }
-      
     },
   },
 };

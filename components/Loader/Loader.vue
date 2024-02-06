@@ -1,34 +1,47 @@
 <template>
-    <div>
-    <div class="night-loader">
-      <div v-for="index in 20" :key="index" class="shooting_star"></div>
-    </div>
+  <div class="loader-container">
+    <span class="loader"></span>
   </div>
-    
-   
-   
 </template>
 
-<script>
-export default {
-  mounted() {
-    // JavaScript pour générer les étoiles
-    const nightContainer = document.querySelector(".night-loader");
+<style scoped>
+.loader-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 
-    for (let i = 0; i < 20; i++) {
-      const shootingStar = document.createElement("div");
-      shootingStar.classList.add("shooting_star");
+.loader {
+  display: block;
+  position: relative;
+  height: 12px;
+  width: 80%;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-      // Génération de positions aléatoires
-      const topPosition = Math.floor(Math.random() * 100) + 1;
-      const leftPosition = Math.floor(Math.random() * 100) + 1;
+.loader::after {
+  content: "";
+  width: 40%;
+  height: 100%;
+  background: #ff3d00;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
 
-      // Application des positions aléatoires
-      shootingStar.style.top = `${topPosition}%`;
-      shootingStar.style.left = `${leftPosition}%`;
-
-      nightContainer.appendChild(shootingStar);
-    }
-  },
-};
-</script>
+@keyframes animloader {
+  0% {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(0%);
+  }
+}
+</style>

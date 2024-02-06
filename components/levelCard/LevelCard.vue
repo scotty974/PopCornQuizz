@@ -4,7 +4,11 @@ const img = useImage();
 
 <template>
   <div class="flex flex-col items-center gap-6">
-    <div class="flex flex-col items-center gap-2">
+    <div
+      v-motion-slide-bottom
+      :delay="100"
+      class="flex flex-col items-center gap-2"
+    >
       <NuxtLink
         :to="`/question/${id}`"
         class="flex w-52 h-52 bg-bgLevel bg-opacity-30 hover:bg-primary transition ease-in-out duration-300 rounded-2xl items-center justify-center"
