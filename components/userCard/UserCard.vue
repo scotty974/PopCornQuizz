@@ -43,8 +43,8 @@
 export default {
   props: {
     pseudo: String,
-    score: Number,
-    userPosition: String,
+    score: String,
+    userPosition: Number,
   },
 };
 </script>

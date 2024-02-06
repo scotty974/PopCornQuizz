@@ -21,7 +21,7 @@ import supabase from "../../lib/supabaseClient.js";
       <QuestionCard
         v-if="dataLoaded"
         :allQuestions="dataQuestions"
-        @game-over="dummy"
+        @game-over="handleTime"
         @selected-Card="showGreenDiv"
         @show-red-div="showRedDiv"
       ></QuestionCard>
