@@ -8,14 +8,17 @@ useHead({
       content:
         "Explorez les mystères de l'univers avec notre quiz sur l'espace ! Testez vos connaissances astronomiques, découvrez des faits fascinants sur les planètes, les étoiles et les galaxies, et défiez vos amis pour voir qui est le véritable astronome. Plongez dans le cosmos avec des questions captivantes et mesurez votre savoir spatial. Êtes-vous prêt pour ce voyage interstellaire de connaissances ? Répondez aux questions et révélez l'astronaute qui sommeille en vous !",
     },
-    {name : "keywords", content:"quiz, espace, astronomie, univers, planètes, étoiles, galaxies, connaissances, astronome, cosmos, questions, jeu, divertissement, éducation"}
+    {
+      name: "keywords",
+      content:
+        "quiz, espace, astronomie, univers, planètes, étoiles, galaxies, connaissances, astronome, cosmos, questions, jeu, divertissement, éducation",
+    },
   ],
 });
 useSeoMeta({
   title: "Accueil-SpaceQuizz",
   description:
     "Explorez les mystères de l'univers avec notre quiz sur l'espace ! Testez vos connaissances astronomiques, découvrez des faits fascinants sur les planètes, les étoiles et les galaxies, et défiez vos amis pour voir qui est le véritable astronome. Plongez dans le cosmos avec des questions captivantes et mesurez votre savoir spatial. Êtes-vous prêt pour ce voyage interstellaire de connaissances ? Répondez aux questions et révélez l'astronaute qui sommeille en vous !",
-
 });
 </script>
 
@@ -26,14 +29,17 @@ useSeoMeta({
       <CanvaCanvas @end-loader="handleLoading" />
     </div>
 
-    <div class=" flex flex-col justify-center items-center h-screen z-10">
+    <div class="flex flex-col justify-center items-center h-screen z-10">
       <AccueilCard />
-      <span class="text-textSecondary absolute top-3/4 pt-14 text-base"
+      <span class="text-textSecondary absolute bottom-7 pt-16 text-base"
         >Développé par 2 étudiants de l'ESD Paris -
         <a class="underline" href="https://github.com/scotty974" target="_blank"
           >Fabien Etheve</a
         >
-        X <a class="underline" href="https://github.com/dan-arki" target="_blank">Dan Arki</a>
+        X
+        <a class="underline" href="https://github.com/dan-arki" target="_blank"
+          >Dan Arki</a
+        >
       </span>
     </div>
   </section>
