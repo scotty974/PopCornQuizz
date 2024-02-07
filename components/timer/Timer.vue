@@ -1,4 +1,7 @@
 import type { space } from 'postcss/lib/list';
+<script setup>
+import {Howl} from 'howler'
+</script>
 <template>
   <div
     :class="{ 'bg-red-500': time <= 15, 'animate-pulse-slow': time <= 15 }"
@@ -13,6 +16,7 @@ export default {
   data() {
     return {
       time: 60,
+      sound : null
     };
   },
   computed: {
@@ -26,6 +30,11 @@ export default {
     this.timerInterval = setInterval(() => {
       if (this.time > 0) {
         this.time--;
+        if(this.time < 15){
+          this.sound = new Howl({src : "/tick.mp3", html5 : true})
+        this.sound.play()
+        }
+       
       } else {
         clearInterval(this.timerInterval);
         this.$emit("timeout");
