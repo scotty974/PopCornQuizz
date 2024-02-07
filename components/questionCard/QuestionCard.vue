@@ -1,83 +1,6 @@
 <script setup>
 import questionsScore from "../questionCard/questionsScore.js";
 import { ref } from "vue";
-</script>
-<template>
-  <div v-motion-slide-visible-top class="flex flex-col gap-7 items-center">
-    <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl">
-      <img
-        :src="currentQ.picture_question"
-        alt="illustration logo"
-        class="w-full h-full"
-      />
-    </div>
-    <span class="question text-2xl px-72 text-center text-white">{{
-      currentQ.question
-    }}</span>
-    <div class="flex flex-col gap-10">
-      <div class="grid grid-cols-2 gap-6">
-        <AnswerCard
-          v-for="(answer, index) in currentAnswers"
-          :key="index"
-          :answer="answer.text"
-          :isCorrect="answer.isCorrect"
-          @card-clicked="handleCardClicked"
-        ></AnswerCard>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    // useState
-    return {
-      correctAnswer: null,
-      currentAnswers: ref([]),
-      currentQ: ref({}),
-      currentIndex: 0,
-      sound: new Howl({
-        src: ["win.mp3"],
-        volume: 0.5,
-        html5: true,
-      }),
-    };
-  },
-  props: {
-    // props
-    allQuestions: {
-      type: Object,
-    },
-  },
-  mounted() {
-    //useEffect []
-    this.shuffleQuestions();
-    this.shuffleAnswers();
-  },
-  methods: {
-    // fonctions
-    shuffleAnswers() {
-      this.currentAnswers = [
-        { text: this.currentQ.true_answer, isCorrect: true },
-        { text: this.currentQ.false_answer_one, isCorrect: false },
-        { text: this.currentQ.false_answer_two, isCorrect: false },
-        { text: this.currentQ.false_answer_three, isCorrect: false },
-      ];
-      this.currentAnswers = this.currentAnswers.sort(() => Math.random() - 0.5);
-    },
-    shuffleQuestions() {
-      const allQuestions = this.allQuestions.sort(() => Math.random() - 0.5);
-      this.currentQ = allQuestions[this.currentIndex];
-    },
-    handleCardClicked(cardInfo) {
-      if (cardInfo.isCorrect) {
-        this.sound.play();
-        console.log(this.sound);
-        questionsScore(this.currentQ.score);
-        this.$emit("selected-Card");<script setup>
-import questionsScore from "../questionCard/questionsScore.js";
-import { ref } from "vue";
 import { Howl } from "howler";
 </script>
 <template>
@@ -165,26 +88,6 @@ export default {
         });
 
         this.sound.play();
-        this.$emit("show-red-div");
-      }
-      this.currentIndex++;
-      if (this.currentIndex >= this.allQuestions.length) {
-        this.$emit("game-over");
-      } else {
-        setTimeout(() => {
-          this.currentQ = this.allQuestions[this.currentIndex];
-          this.shuffleAnswers();
-        }, 500);
-      }
-    },
-  },
-};
-</script>
-
-      } else {
-        // const audioLost = new Audio("lost.mp3");
-        // audioLost.play();
-        // console.log("play sound wrong");
         this.$emit("show-red-div");
       }
       this.currentIndex++;
