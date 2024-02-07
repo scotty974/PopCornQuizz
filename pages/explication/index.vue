@@ -18,10 +18,9 @@
 
     <section
       class="md:container md:m-auto px-2 flex justify-center items-center"
-      v-motion-fade
     >
       <div class="w-full flex justify-center items-center z-20">
-        <ExplicationCard></ExplicationCard>
+        <ExplicationCard />
       </div>
     </section>
   </main>
@@ -30,9 +29,6 @@
 <script>
 export default {
   mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
     // JavaScript pour générer les étoiles
     const nightContainer = document.querySelector(".night");
 

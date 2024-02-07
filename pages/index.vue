@@ -1,7 +1,7 @@
 <script setup>
 import { Howl } from "howler";
-import { ref } from "vue";
 </script>
+
 <template>
   <Loader v-if="isLoading" />
   <section
@@ -22,19 +22,31 @@ export default {
   data() {
     return {
       isLoading: true,
+      sound: null,
     };
   },
 
   methods: {
     handleLoading() {
-      const sound = ref(
-        new Howl({ src: ["intro.mp3"], volume: 1.0, autoplay:true, loop:true,html5: true })
-      );
-      sound.value.play();
+      this.sound = new Howl({
+        src: ["intro.mp3"],
+        volume: 1.0,
+        autoplay: true,
+        loop: true,
+        html5: true,
+      });
+      this.sound.play();
       setTimeout(() => {
         this.isLoading = false;
       }, 5000);
     },
+  },
+
+  beforeUnmount() {
+    // Arrêter le son avant que le composant ne soit démonté
+    if (this.sound) {
+      this.sound.stop();
+    }
   },
 };
 </script>
