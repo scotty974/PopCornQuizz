@@ -1,6 +1,7 @@
 <script setup>
 import questionsScore from "../questionCard/questionsScore.js";
 import { ref } from "vue";
+import { Howl } from "howler";
 </script>
 <template>
   <div v-motion-slide-visible-top class="flex flex-col gap-7 items-center">
@@ -32,11 +33,17 @@ import { ref } from "vue";
 export default {
   data() {
     // useState
+
     return {
       correctAnswer: null,
       currentAnswers: ref([]),
       currentQ: ref({}),
       currentIndex: 0,
+      sound: new Howl({
+        src: ["win.mp3"],
+        volume: 0.5,
+        html5: true,
+      }),
     };
   },
   props: {
@@ -68,9 +75,14 @@ export default {
     },
     handleCardClicked(cardInfo) {
       if (cardInfo.isCorrect) {
+        this.sound.play();
+        console.log(this.sound);
         questionsScore(this.currentQ.score);
         this.$emit("selected-Card");
       } else {
+        // const audioLost = new Audio("lost.mp3");
+        // audioLost.play();
+        // console.log("play sound wrong");
         this.$emit("show-red-div");
       }
       this.currentIndex++;
@@ -84,6 +96,17 @@ export default {
       }
       // this.$emit("selected-Card");
     },
+    // async playSoundCorrectOrWrong() {
+    //   if (this.isCorrect) {
+    //     const audio = new Audio("win.mp3");
+    //     await audio.play();
+    //     console.log("play sound correct");
+    //   } else {
+    //     const audio = new Audio("lost.mp3");
+    //     await audio.play();
+    //     console.log("play sound wrong");
+    //   }
+    // },
   },
 };
 </script>

@@ -73,13 +73,13 @@ export default {
       this.showColorDivGreen = true;
       setTimeout(() => {
         this.showColorDivGreen = false;
-      }, 1000);
+      }, 400);
     },
     showRedDiv() {
       this.showColorDivRed = true;
       setTimeout(() => {
         this.showColorDivRed = false;
-      }, 1000);
+      }, 400);
     },
   },
 };
