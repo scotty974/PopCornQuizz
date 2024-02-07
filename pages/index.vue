@@ -47,7 +47,8 @@ export default {
   beforeUnmount() {
     // Arrêter le son avant que le composant ne soit démonté
     if (this.sound) {
-      this.sound.stop();
+      this.sound.volume(0.4)
+     
     }
   },
 };
