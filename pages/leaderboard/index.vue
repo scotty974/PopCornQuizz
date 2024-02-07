@@ -19,6 +19,7 @@ import userCard from "../../components/userCard/userCard.js";
         :pseudo="user.userPseudo"
         :score="user.userScore"
         :userPosition="userPosition"
+        v-if="isLoading"
       />
       <LeaderBoard :users="users" :position="userPosition" v-if="isLoading"></LeaderBoard>
     </div>
