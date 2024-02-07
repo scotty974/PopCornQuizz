@@ -77,7 +77,7 @@ export default {
         });
 
         this.sound.play();
-        console.log(this.sound);
+        
         questionsScore(this.currentQ.score);
         this.$emit("selected-Card");
       } else {
