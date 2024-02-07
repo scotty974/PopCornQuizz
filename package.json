@@ -26,11 +26,7 @@
     "@tresjs/nuxt": "^2.1.0",
     "@tresjs/post-processing": "^0.7.0",
     "@vueuse/motion": "^2.0.0",
-<<<<<<< HEAD
     "@vueuse/sound": "^2.0.1",
-=======
-    "cookie-universal-nuxt": "^2.2.2",
->>>>>>> 697f2cd6894c5f17caa7616c579376253cd34ca7
     "howler": "^2.2.4",
     "three": "^0.161.0"
   }
