@@ -1,7 +1,6 @@
 <script setup>
 import questionsScore from "../questionCard/questionsScore.js";
 import { ref } from "vue";
-import { Howl } from "howler";
 </script>
 <template>
   <div v-motion-slide-visible-top class="flex flex-col gap-7 items-center">
@@ -33,17 +32,11 @@ import { Howl } from "howler";
 export default {
   data() {
     // useState
-
     return {
       correctAnswer: null,
       currentAnswers: ref([]),
       currentQ: ref({}),
       currentIndex: 0,
-      sound: new Howl({
-        src: ["win.mp3"],
-        volume: 0.5,
-        html5: true,
-      }),
     };
   },
   props: {
@@ -71,18 +64,12 @@ export default {
     shuffleQuestions() {
       const allQuestions = this.allQuestions.sort(() => Math.random() - 0.5);
       this.currentQ = allQuestions[this.currentIndex];
-      
     },
     handleCardClicked(cardInfo) {
       if (cardInfo.isCorrect) {
-        this.sound.play();
-        console.log(this.sound);
         questionsScore(this.currentQ.score);
         this.$emit("selected-Card");
       } else {
-        // const audioLost = new Audio("lost.mp3");
-        // audioLost.play();
-        // console.log("play sound wrong");
         this.$emit("show-red-div");
       }
       this.currentIndex++;
@@ -94,19 +81,7 @@ export default {
           this.shuffleAnswers();
         }, 500);
       }
-     
     },
-    // async playSoundCorrectOrWrong() {
-    //   if (this.isCorrect) {
-    //     const audio = new Audio("win.mp3");
-    //     await audio.play();
-    //     console.log("play sound correct");
-    //   } else {
-    //     const audio = new Audio("lost.mp3");
-    //     await audio.play();
-    //     console.log("play sound wrong");
-    //   }
-    // },
   },
 };
 </script>
