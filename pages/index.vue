@@ -23,9 +23,7 @@ export default {
       isLoading: true,
       sound: null,
     };
-    
   },
-  
 
   methods: {
     handleLoading() {
@@ -41,14 +39,12 @@ export default {
         this.isLoading = false;
       }, 5000);
     },
- 
   },
 
   beforeUnmount() {
     // Arrêter le son avant que le composant ne soit démonté
     if (this.sound) {
-      this.sound.volume(0.4)
-     
+      this.sound.volume(0.4);
     }
   },
 };
