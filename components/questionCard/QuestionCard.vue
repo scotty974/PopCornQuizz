@@ -71,7 +71,6 @@ export default {
     shuffleQuestions() {
       const allQuestions = this.allQuestions.sort(() => Math.random() - 0.5);
       this.currentQ = allQuestions[this.currentIndex];
-      
     },
     handleCardClicked(cardInfo) {
       if (cardInfo.isCorrect) {
@@ -80,9 +79,6 @@ export default {
         questionsScore(this.currentQ.score);
         this.$emit("selected-Card");
       } else {
-        // const audioLost = new Audio("lost.mp3");
-        // audioLost.play();
-        // console.log("play sound wrong");
         this.$emit("show-red-div");
       }
       this.currentIndex++;
@@ -94,7 +90,6 @@ export default {
           this.shuffleAnswers();
         }, 500);
       }
-     
     },
     // async playSoundCorrectOrWrong() {
     //   if (this.isCorrect) {
