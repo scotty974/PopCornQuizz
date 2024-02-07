@@ -23,12 +23,9 @@ export default {
       isLoading: true,
       sound: null,
     };
-    //      ^ What we're talking about
+    
   },
-  // created() {
-  //   this.playSound();
-  //   console.log("mounted");
-  // },
+  
 
   methods: {
     handleLoading() {
@@ -44,11 +41,7 @@ export default {
         this.isLoading = false;
       }, 5000);
     },
-    // async playSound() {
-    //   const audio = new Audio("intro.mp3");
-    //   await audio.play();
-    //   console.log("play sound");
-    // },
+ 
   },
 
   beforeUnmount() {
