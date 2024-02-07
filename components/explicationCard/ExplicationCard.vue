@@ -8,20 +8,20 @@
     </div>
     <div class="flex flex-col gap-4">
       <div v-motion-slide-left :delay="100" class="flex gap-4 items-center">
-        <img class="w-16" src="assets/media/view.svg" alt="" />
+        <img class="w-16" src="assets/media/view.svg" alt="telescope" />
         <p class="text-white text-lg w-96 text-wrap leading-6">
           Choisissez parmi les niveaux débutant, intermédiaire ou expert selon
           votre audace.
         </p>
       </div>
       <div v-motion-slide-left :delay="150" class="flex gap-4 items-center">
-        <img class="w-16" src="assets/media/fusee.svg" alt="" />
+        <img class="w-16" src="assets/media/fusee.svg" alt="fusee" />
         <p class="text-white text-lg w-96 text-wrap leading-6">
           Répondez au plus grand nombre de questions possibles en 1 minute.
         </p>
       </div>
       <div v-motion-slide-left :delay="200" class="flex gap-4 items-center">
-        <img class="w-16" src="assets/media/sommet.svg" alt="" />
+        <img class="w-16" src="assets/media/sommet.svg" alt="sommet" />
         <p class="text-white text-lg w-96 text-wrap leading-6">
           Atteignez le sommet du leaderboard en obtenant le meilleur score.
         </p>
