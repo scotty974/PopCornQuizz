@@ -51,17 +51,6 @@ export default {
       this.isSelected = false;
       this.showGoodAnswer = false;
     },
-    // async playSoundCorrectOrWrong() {
-    //   if (this.isCorrect) {
-    //     const audio = new Audio("win.mp3");
-    //     await audio.play();
-    //     console.log("play sound correct");
-    //   } else {
-    //     const audio = new Audio("lost.mp3");
-    //     await audio.play();
-    //     console.log("play sound wrong");
-    //   }
-    // },
   },
   watch: {
     answer() {

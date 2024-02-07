@@ -39,11 +39,7 @@ export default {
       currentAnswers: ref([]),
       currentQ: ref({}),
       currentIndex: 0,
-      sound: new Howl({
-        src: ["win.mp3"],
-        volume: 0.5,
-        html5: true,
-      }),
+      sound: null,
     };
   },
   props: {
@@ -74,10 +70,24 @@ export default {
     },
     handleCardClicked(cardInfo) {
       if (cardInfo.isCorrect) {
+        this.sound = new Howl({
+          src: ["/win.mp3"],
+          volume: 1.0,
+          html5: true,
+        });
+
         this.sound.play();
+        console.log(this.sound);
         questionsScore(this.currentQ.score);
         this.$emit("selected-Card");
       } else {
+        this.sound = new Howl({
+          src: ["/lost.mp3"],
+          volume: 1.0,
+          html5: true,
+        });
+
+        this.sound.play();
         this.$emit("show-red-div");
       }
       this.currentIndex++;
@@ -90,17 +100,6 @@ export default {
         }, 500);
       }
     },
-    // async playSoundCorrectOrWrong() {
-    //   if (this.isCorrect) {
-    //     const audio = new Audio("win.mp3");
-    //     await audio.play();
-    //     console.log("play sound correct");
-    //   } else {
-    //     const audio = new Audio("lost.mp3");
-    //     await audio.play();
-    //     console.log("play sound wrong");
-    //   }
-    // },
   },
 };
 </script>
