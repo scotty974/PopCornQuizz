@@ -26,9 +26,15 @@ useSeoMeta({
       <CanvaCanvas @end-loader="handleLoading" />
     </div>
 
-    <div class="w-full flex justify-center items-center h-screen z-10">
+    <div class=" flex flex-col justify-center items-center h-screen z-10">
       <AccueilCard />
-      <!-- <button class="text-white" @click="playSound">Play Sound</button> -->
+      <span class="text-textSecondary absolute top-3/4 pt-14 text-base"
+        >Développé par 2 étudiants de l'ESD Paris -
+        <a class="underline" href="https://github.com/scotty974" target="_blank"
+          >Fabien Etheve</a
+        >
+        X <a class="underline" href="https://github.com/dan-arki" target="_blank">Dan Arki</a>
+      </span>
     </div>
   </section>
 </template>
