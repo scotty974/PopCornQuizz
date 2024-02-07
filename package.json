@@ -28,6 +28,7 @@
     "@vueuse/motion": "^2.0.0",
     "@vueuse/sound": "^2.0.1",
     "howler": "^2.2.4",
+    "nuxt-robots-module": "^1.5.1",
     "three": "^0.161.0"
   }
 }

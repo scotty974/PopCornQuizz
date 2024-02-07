@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+  head: {
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/logofavIcon.png' }
+    ]
+  }
+},
   devtools: { enabled: true },
   css: ["~/assets/main.css"],
   postcss: {
@@ -12,6 +19,7 @@ export default defineNuxtConfig({
   tres: {
     devtools: true,
   },
+
   runtimeConfig: {
     public: {
       motion: {
@@ -32,5 +40,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  
 });

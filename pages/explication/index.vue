@@ -6,7 +6,7 @@
         <img
           class="m-3"
           src="/assets/media/logoSpaceQuizzFinalSmall.svg"
-          alt=""
+          alt="space quizz logo"
         />
       </NuxtLink>
     </header>
