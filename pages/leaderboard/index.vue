@@ -1,6 +1,7 @@
 <script setup>
 import supabase from "../../lib/supabaseClient.js";
 import userCard from "../../components/userCard/userCard.js";
+import {Howl} from 'howler'
 </script>
 
 <template>
@@ -34,6 +35,7 @@ export default {
       users: [],
       user: [],
       userPosition: 0,
+      sound : null
     };
   },
   async mounted() {
@@ -116,7 +118,11 @@ export default {
           .select();
       }
       this.handleUsers();
-this.isLoading = true
+      this.isLoading = true
+    
+        this.sound = new Howl({src : ["/victory.mp3"],  volume: 1.0, html5: true})
+        this.sound.play()
+      
     },
   },
 };
