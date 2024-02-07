@@ -1,3 +1,7 @@
+<script setup>
+import { Howl } from "howler";
+</script>
+
 <template>
   <Loader v-if="isLoading" />
   <section class="md:container md:m-auto px-2 flex justify-center items-center">
@@ -17,6 +21,7 @@ export default {
   data() {
     return {
       isLoading: true,
+      sound: null,
     };
     //      ^ What we're talking about
   },
@@ -27,6 +32,14 @@ export default {
 
   methods: {
     handleLoading() {
+      this.sound = new Howl({
+        src: ["intro.mp3"],
+        volume: 1.0,
+        autoplay: true,
+        loop: true,
+        html5: true,
+      });
+      this.sound.play();
       setTimeout(() => {
         this.isLoading = false;
       }, 5000);
@@ -36,6 +49,13 @@ export default {
     //   await audio.play();
     //   console.log("play sound");
     // },
+  },
+
+  beforeUnmount() {
+    // Arrêter le son avant que le composant ne soit démonté
+    if (this.sound) {
+      this.sound.stop();
+    }
   },
 };
 </script>

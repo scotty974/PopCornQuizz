@@ -71,7 +71,7 @@ export default {
     shuffleQuestions() {
       const allQuestions = this.allQuestions.sort(() => Math.random() - 0.5);
       this.currentQ = allQuestions[this.currentIndex];
-      console.log(this.currentQ);
+      
     },
     handleCardClicked(cardInfo) {
       if (cardInfo.isCorrect) {
@@ -86,7 +86,7 @@ export default {
         this.$emit("show-red-div");
       }
       this.currentIndex++;
-      if (this.currentIndex > this.allQuestions.length) {
+      if (this.currentIndex >= this.allQuestions.length) {
         this.$emit("game-over");
       } else {
         setTimeout(() => {
@@ -94,7 +94,7 @@ export default {
           this.shuffleAnswers();
         }, 500);
       }
-      // this.$emit("selected-Card");
+     
     },
     // async playSoundCorrectOrWrong() {
     //   if (this.isCorrect) {

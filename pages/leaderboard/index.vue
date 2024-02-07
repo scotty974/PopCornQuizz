@@ -19,8 +19,9 @@ import userCard from "../../components/userCard/userCard.js";
         :pseudo="user.userPseudo"
         :score="user.userScore"
         :userPosition="userPosition"
+        v-if="isLoading"
       />
-      <LeaderBoard :users="users" :position="userPosition"></LeaderBoard>
+      <LeaderBoard :users="users" :position="userPosition" v-if="isLoading"></LeaderBoard>
     </div>
   </section>
 </template>
@@ -29,7 +30,7 @@ import userCard from "../../components/userCard/userCard.js";
 export default {
   data() {
     return {
-      isLoading: true,
+      isLoading: false,
       users: [],
       user: [],
       userPosition: 0,
@@ -115,6 +116,7 @@ export default {
           .select();
       }
       this.handleUsers();
+this.isLoading = true
     },
   },
 };
