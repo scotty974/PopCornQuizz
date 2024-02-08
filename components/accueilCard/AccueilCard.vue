@@ -19,7 +19,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
   >
     <NuxtLink
       to="/explication"
-      class="flex flex-col items-center justify-center gap-6 h-screen w-screen"
+      class="flex flex-col items-center justify-center gap-6 h-screen "
     >
       <img
         src="/assets/media/logoSpaceQuizzFinal.svg"
@@ -31,6 +31,8 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
         class="absolute top-3/4 py-3 px-3 rounded-xl w-56 text-center uppercase font-normal text-lg animate-bounce text-white hover:underline"
         >Press start</span
       >
+      
     </NuxtLink>
+    
   </div>
 </template>

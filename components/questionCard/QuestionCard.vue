@@ -8,7 +8,7 @@ import { Howl } from "howler";
     <div class="w-cardQuestion md:h-56 bg-slate-400 rounded-3xl">
       <img
         :src="currentQ.picture_question"
-        alt="illustration logo"
+        alt="illustration question"
         class="w-full h-full"
       />
     </div>
@@ -77,7 +77,7 @@ export default {
         });
 
         this.sound.play();
-
+        
         questionsScore(this.currentQ.score);
         this.$emit("selected-Card");
       } else {

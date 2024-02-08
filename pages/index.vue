@@ -1,17 +1,46 @@
 <script setup>
 import { Howl } from "howler";
+useHead({
+  title: "Accueil-SpaceQuizz",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Explorez les mystères de l'univers avec notre quiz sur l'espace ! Testez vos connaissances astronomiques, découvrez des faits fascinants sur les planètes, les étoiles et les galaxies, et défiez vos amis pour voir qui est le véritable astronome. Plongez dans le cosmos avec des questions captivantes et mesurez votre savoir spatial. Êtes-vous prêt pour ce voyage interstellaire de connaissances ? Répondez aux questions et révélez l'astronaute qui sommeille en vous !",
+    },
+    {
+      name: "keywords",
+      content:
+        "quiz, espace, astronomie, univers, planètes, étoiles, galaxies, connaissances, astronome, cosmos, questions, jeu, divertissement, éducation",
+    },
+  ],
+});
+useSeoMeta({
+  title: "Accueil-SpaceQuizz",
+  description:
+    "Explorez les mystères de l'univers avec notre quiz sur l'espace ! Testez vos connaissances astronomiques, découvrez des faits fascinants sur les planètes, les étoiles et les galaxies, et défiez vos amis pour voir qui est le véritable astronome. Plongez dans le cosmos avec des questions captivantes et mesurez votre savoir spatial. Êtes-vous prêt pour ce voyage interstellaire de connaissances ? Répondez aux questions et révélez l'astronaute qui sommeille en vous !",
+});
 </script>
 
 <template>
+  
   <Loader v-if="isLoading" />
-  <section class="md:container md:m-auto px-2 flex justify-center items-center">
-    <div class="absolute">
-      <CanvaCanvas @end-loader="handleLoading" />
-    </div>
-
-    <div class="w-full flex justify-center items-center h-screen z-10">
+  <div class="absolute">
+    <CanvaCanvas @end-loader="handleLoading" />
+  </div>
+  <section class="md:container md:m-auto px-2 flex justify-center items-center" >
+    <div class="flex flex-col justify-center items-center h-screen z-10">
       <AccueilCard />
-      <!-- <button class="text-white" @click="playSound">Play Sound</button> -->
+      <span class="text-textSecondary absolute bottom-7 pt-16 text-base"
+        >Développé par 2 étudiants de l'ESD Paris -
+        <a class="underline" href="https://github.com/scotty974" target="_blank"
+          >Fabien Etheve</a
+        >
+        X
+        <a class="underline" href="https://github.com/dan-arki" target="_blank"
+          >Dan Arki</a
+        >
+      </span>
     </div>
   </section>
 </template>

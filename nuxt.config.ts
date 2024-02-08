@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
   head: {
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/logofavIcon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: 'logofavIcon.png' }
     ]
   }
 },
@@ -40,5 +40,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  
 });

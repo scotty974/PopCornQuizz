@@ -5,7 +5,7 @@
         <img
           class="m-3"
           src="/assets/media/logoSpaceQuizzFinalSmall.svg"
-          alt=""
+          alt="logo space quizz"
         />
       </NuxtLink>
     </nav>
