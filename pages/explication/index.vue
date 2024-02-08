@@ -1,7 +1,7 @@
 <template>
  
     <!-- <Header /> -->
-    <header class="px-6 py-4 w-screen">
+    <header class="px-6 w-screen">
       <NuxtLink to="/">
         <img
           class="m-3"
@@ -17,7 +17,7 @@
     </div>
 
     <section
-      class="md:container md:m-auto px-2 flex justify-center items-center"
+      class="md:container md:m-auto px-2 flex justify-center items-center min-h-screen"
     >
       <div class="w-full flex justify-center items-center z-20">
         <ExplicationCard />
