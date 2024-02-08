@@ -38,6 +38,7 @@ export default {
       } else {
         clearInterval(this.timerInterval);
         this.$emit("timeout");
+        this.sound.stop()
       }
     }, 1000);
   },
