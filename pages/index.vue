@@ -29,7 +29,7 @@ useSeoMeta({
     <CanvaCanvas @end-loader="handleLoading" />
   </div>
   <section class="md:container md:m-auto px-2 flex justify-center items-center" >
-    <div class="flex flex-col justify-center items-center h-screen z-10">
+    <div class="flex flex-col justify-center items-center h-screen z-10 w-screen">
       <AccueilCard />
       <span class="text-textSecondary absolute bottom-7 pt-16 text-base"
         >Développé par 2 étudiants de l'ESD Paris -

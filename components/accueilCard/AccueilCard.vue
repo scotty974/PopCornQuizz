@@ -19,7 +19,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
   >
     <NuxtLink
       to="/explication"
-      class="flex flex-col items-center justify-center gap-6 h-screen "
+      class="flex flex-col items-center justify-center gap-6 h-screen w-screen"
     >
       <img
         src="/assets/media/logoSpaceQuizzFinal.svg"
