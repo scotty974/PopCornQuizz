@@ -12,7 +12,7 @@
         <p class="text-white text-lg w-96 text-wrap leading-6">
           Choisissez parmi les niveaux débutant, intermédiaire ou expert selon
           votre audace.
-        </p>
+        </p>  
       </div>
       <div v-motion-slide-left :delay="150" class="flex gap-4 items-center">
         <img class="w-16" src="assets/media/fusee.svg" alt="fusee" />

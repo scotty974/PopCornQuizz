@@ -1,7 +1,7 @@
 <script setup>
 import supabase from "../../lib/supabaseClient.js";
 import userCard from "../../components/userCard/userCard.js";
-import {Howl} from 'howler'
+import { Howl } from "howler";
 </script>
 
 <template>
@@ -22,7 +22,11 @@ import {Howl} from 'howler'
         :userPosition="userPosition"
         v-if="isLoading"
       />
-      <LeaderBoard :users="users" :position="userPosition" v-if="isLoading"></LeaderBoard>
+      <LeaderBoard
+        :users="users"
+        :position="userPosition"
+        v-if="isLoading"
+      ></LeaderBoard>
     </div>
   </section>
 </template>
@@ -35,7 +39,7 @@ export default {
       users: [],
       user: [],
       userPosition: 0,
-      sound : null
+      sound: null,
     };
   },
   async mounted() {
@@ -118,11 +122,13 @@ export default {
           .select();
       }
       this.handleUsers();
-      this.isLoading = true
-    
-        this.sound = new Howl({src : ["/victory.mp3"],  volume: 1.0, html5: true})
-        this.sound.play()
-      
+      this.isLoading = true;
+      this.sound = new Howl({
+        src: ["/victory.mp3"],
+        volume: 1.0,
+        html5: true,
+      });
+      this.sound.play();
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <main>
+ 
     <!-- <Header /> -->
     <header class="px-6 py-4 w-screen">
       <NuxtLink to="/">
@@ -23,7 +23,7 @@
         <ExplicationCard />
       </div>
     </section>
-  </main>
+ 
 </template>
 
 <script>
