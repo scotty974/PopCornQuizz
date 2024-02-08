@@ -9,7 +9,7 @@ import type { NuxtLink } from '#build/components'; import type { NuxtLink } from
       <img
         src="/assets/media/logoSpaceQuizzFinal.svg"
         alt="logo space quizz"
-        class="w-96"
+        class="md:w-96 lg:1/2"
       />
 
       <span
