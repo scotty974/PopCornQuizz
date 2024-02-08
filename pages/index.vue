@@ -23,12 +23,12 @@ useSeoMeta({
 </script>
 
 <template>
+  <div class="absolute">
+    <CanvaCanvas @end-loader="handleLoading" />
+  </div>
   <Loader v-if="isLoading" />
-  <section class="md:container md:m-auto px-2 flex justify-center items-center">
-    <div class="absolute">
-      <CanvaCanvas @end-loader="handleLoading" />
-    </div>
-
+  
+  <section class="md:container md:m-auto px-2 flex justify-center items-center" v-else>
     <div class="flex flex-col justify-center items-center h-screen z-10">
       <AccueilCard />
       <span class="text-textSecondary absolute bottom-7 pt-16 text-base"
