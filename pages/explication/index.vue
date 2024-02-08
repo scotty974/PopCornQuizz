@@ -1,6 +1,6 @@
 <template>
   <!-- <Header /> -->
-  <header class="px-6 w-screen">
+  <header class="px-6 w-screen absolute">
     <NuxtLink to="/">
       <img
         class="m-3"
@@ -15,7 +15,9 @@
     </div>
   </div>
 
-  <section class="md:container md:m-auto flex justify-center items-center">
+  <section
+    class="md:container md:m-auto h-screen flex justify-center items-center"
+  >
     <ExplicationCard />
   </section>
 </template>
