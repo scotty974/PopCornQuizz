@@ -24,7 +24,7 @@ useRenderLoop().onLoop(({ delta }) => {
       :size-attenuation="true"
     />
 
-    <TresPerspectiveCamera :args="[35, 0, 0.5, 5000]" :position="[0, 0, 8]" />
+    <TresPerspectiveCamera :args="[35, 0, 0.5, 5000]" :position="[0, 0, 10]" />
     <Suspense>
       <Lune @end-loading="handLoad" />
     </Suspense>
