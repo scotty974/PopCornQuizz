@@ -1,29 +1,23 @@
 <template>
- 
-    <!-- <Header /> -->
-    <header class="px-6 w-screen">
-      <NuxtLink to="/">
-        <img
-          class="m-3"
-          src="/assets/media/logoSpaceQuizzFinalSmall.svg"
-          alt="space quizz logo"
-        />
-      </NuxtLink>
-    </header>
-    <div>
-      <div class="night">
-        <div v-for="index in 20" :key="index" class="shooting_star"></div>
-      </div>
+  <!-- <Header /> -->
+  <header class="px-6 w-screen">
+    <NuxtLink to="/">
+      <img
+        class="m-3"
+        src="/assets/media/logoSpaceQuizzFinalSmall.svg"
+        alt="space quizz logo"
+      />
+    </NuxtLink>
+  </header>
+  <div>
+    <div class="night">
+      <div v-for="index in 20" :key="index" class="shooting_star"></div>
     </div>
+  </div>
 
-    <section
-      class="md:container md:m-auto px-2 flex justify-center items-center min-h-screen"
-    >
-      <div class="w-full flex justify-center items-center z-20">
-        <ExplicationCard />
-      </div>
-    </section>
- 
+  <section class="md:container md:m-auto flex justify-center items-center">
+    <ExplicationCard />
+  </section>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-8 items-center">
+  <div class="flex flex-col gap-8 items-center mt-6">
     <div class="flex flex-col gap-2 items-center">
       <h2 class="text-white text-3xl">Bienvenue dans notre Quiz Spatial !</h2>
       <span class="text-textSecondary text-base mb-2"
@@ -12,7 +12,7 @@
         <p class="text-white text-lg w-96 text-wrap leading-6">
           Choisissez parmi les niveaux débutant, intermédiaire ou expert selon
           votre audace.
-        </p>  
+        </p>
       </div>
       <div v-motion-slide-left :delay="150" class="flex gap-4 items-center">
         <img class="w-16" src="assets/media/fusee.svg" alt="fusee" />
